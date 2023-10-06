@@ -1,0 +1,42 @@
+:root {
+  --panel-background-color: rgb(244, 244, 244);
+  --todo-background-color: rgb(255, 255, 255);
+}
+
+.top-nav {
+  width: 100vw;
+  background-color: var(--panel-background-color);
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-nav {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-options {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.side-bar {
+  height: 100vh;
+  width: 20vw;
+  background-color: var(--panel-background-color);
+}
+
+.todo-panel {
+  background-color: var(--todo-background-color);
+}
