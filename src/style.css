@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
 :root {
+  --app-fontfont-family: "Architects Daughter", cursive;
   --panel-background-color: rgb(244, 244, 244);
   --todo-background-color: rgb(255, 255, 255);
+  --accent-background-color: rgb(229, 229, 229);
+}
+
+body {
+  font-family: var(--app-fontfont-family);
 }
 
 .top-nav {
@@ -8,6 +16,10 @@
   background-color: var(--panel-background-color);
   display: flex;
   flex-direction: row;
+}
+
+h1 {
+  margin-left: 10px;
 }
 
 .menu-nav {
@@ -18,12 +30,50 @@
   align-items: center;
 }
 
+.search-bar {
+  font-family: var(--app-fontfont-family);
+  width: 10rem;
+  margin-left: 10px;
+  background-color: var(--accent-background-color);
+  border: none;
+  padding: 10px;
+  border-radius: 0.5rem;
+}
+
+.search-bar:hover {
+  background-color: white;
+}
+
+.material-symbols-outlined {
+  position: relative;
+  right: 25px;
+}
+
 .nav-options {
   width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+}
+
+.dark-mode {
+  font-family: var(--app-fontfont-family);
+  color: white;
+  background-color: rgb(33, 33, 84);
+  padding: 10px;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 10px;
+}
+
+.dark-mode:hover {
+  color: rgb(33, 33, 84);
+  background-color: white;
+}
+
+.ham-menu {
+  margin-right: 30px;
 }
 
 .container {
