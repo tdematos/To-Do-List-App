@@ -32,3 +32,32 @@ function closeModal() {
 }
 
 closeModal();
+// function for creating a to do item
+function addToDo() {
+  const addTaskButton = document.querySelector(".add-task-button");
+
+  addTaskButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const modal = document.querySelector("dialog");
+    const taskTitle = document.querySelector(".task-title");
+    const toDoContainer = document.querySelector(".todo-panel");
+    const toDo = document.createElement("div");
+    const checkBox = document.createElement("input");
+    const toDoItem = document.createElement("p");
+
+    toDoContainer.appendChild(toDo);
+    toDo.appendChild(checkBox);
+    toDo.appendChild(toDoItem);
+
+    toDoItem.innerText = taskTitle.value;
+
+    toDo.classList.add("to-do");
+    toDoItem.classList.add("todo-item-title");
+    checkBox.classList.add("todo-checkbox");
+    checkBox.setAttribute("type", "checkbox");
+    checkBox.setAttribute("name", "todo-item-check");
+
+    modal.close();
+  });
+}
+addToDo();

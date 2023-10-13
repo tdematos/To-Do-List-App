@@ -130,6 +130,13 @@ h2 {
   align-items: center;
 }
 
+.to-do {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 50%;
+}
+
 .todo-checkbox {
   position: relative;
   top: 13px;
@@ -142,9 +149,11 @@ h2 {
   outline: none;
 }
 
-.to-do-item {
+.todo-item-title {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .project-title {
