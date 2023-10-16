@@ -40,7 +40,7 @@ function addToDo() {
     event.preventDefault();
     const modal = document.querySelector("dialog");
     const taskTitle = document.querySelector(".task-title");
-    const toDoContainer = document.querySelector(".todo-panel");
+    const toDoContainer = document.querySelector(".need-todo");
     const toDo = document.createElement("div");
     const checkBox = document.createElement("input");
     const toDoItem = document.createElement("p");
@@ -61,3 +61,8 @@ function addToDo() {
   });
 }
 addToDo();
+
+//function that completes todo and moves them to bottom of hr rule
+function completeToDo() {
+  const checkBox = document.querySelector(".todo-checkbox");
+}
