@@ -1,3 +1,6 @@
+//create an array that stores my todo's
+const toDoArray = [];
+
 class ToDo {
   constructor(taskName, description) {
     this.taskName = taskName;
@@ -5,8 +8,9 @@ class ToDo {
   }
 }
 
-class Project {
-  constructor() {}
+//create a function for pushing todos to array
+function addToDoToArray(toDo) {
+  toDoArray.push(toDo);
 }
 
 //function for opening modal
@@ -32,15 +36,17 @@ function closeModal() {
 }
 
 closeModal();
-// function for creating a to do item
-function addToDo() {
+
+//create a function for displaying todo from array
+function displayToDo() {
   const addTaskButton = document.querySelector(".add-task-button");
+  const modal = document.querySelector("dialog");
+  const taskTitle = document.querySelector(".task-title");
+  const toDoContainer = document.querySelector(".need-todo");
 
   addTaskButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const modal = document.querySelector("dialog");
-    const taskTitle = document.querySelector(".task-title");
-    const toDoContainer = document.querySelector(".need-todo");
+
     const toDo = document.createElement("div");
     const checkBox = document.createElement("input");
     const toDoItem = document.createElement("p");
@@ -57,12 +63,23 @@ function addToDo() {
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
+    const newToDo = new ToDo(taskTitle.value);
+
+    addToDoToArray(newToDo);
     modal.close();
   });
 }
-addToDo();
+displayToDo();
+
+console.log(toDoArray);
 
 //function that completes todo and moves them to bottom of hr rule
-function completeToDo() {
-  const checkBox = document.querySelector(".todo-checkbox");
-}
+// function completeToDo() {
+//   const checkBox = document.querySelector(".todo-checkbox");
+
+//   checkBox.addEventListener("changed", () => {
+//     if (this.checked) {
+
+//     }
+//   })
+// }
