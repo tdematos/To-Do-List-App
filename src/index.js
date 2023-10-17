@@ -66,6 +66,7 @@ function displayToDo() {
     const newToDo = new ToDo(taskTitle.value);
 
     addToDoToArray(newToDo);
+    completeToDo();
     modal.close();
   });
 }
@@ -74,12 +75,8 @@ displayToDo();
 console.log(toDoArray);
 
 //function that completes todo and moves them to bottom of hr rule
-// function completeToDo() {
-//   const checkBox = document.querySelector(".todo-checkbox");
+function completeToDo() {
+  const checkBoxes = document.querySelectorAll(".todo-checkbox");
 
-//   checkBox.addEventListener("changed", () => {
-//     if (this.checked) {
-
-//     }
-//   })
-// }
+  console.log(checkBoxes);
+}
