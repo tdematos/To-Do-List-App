@@ -78,5 +78,13 @@ console.log(toDoArray);
 function completeToDo() {
   const checkBoxes = document.querySelectorAll(".todo-checkbox");
 
+  checkBoxes.forEach((checkBox) => {
+    checkBox.addEventListener("change", function () {
+      const todoItem = checkBox.parentNode;
+
+      todoItem.remove();
+    });
+  });
+
   console.log(checkBoxes);
 }
