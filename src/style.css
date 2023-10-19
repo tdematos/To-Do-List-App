@@ -164,21 +164,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.completed-todo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: #333;
-  background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}
-
 .project-title {
   margin-left: 10px;
   font-size: 1.25rem;

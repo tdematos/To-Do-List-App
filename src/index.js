@@ -2,9 +2,11 @@
 const toDoArray = [];
 
 class ToDo {
-  constructor(taskName, description) {
+  constructor(taskName, description, complete) {
+    this.id;
     this.taskName = taskName;
     this.description = description;
+    this.complete = complete;
   }
 }
 
@@ -63,7 +65,7 @@ function displayToDo() {
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
-    const newToDo = new ToDo(taskTitle.value);
+    const newToDo = new ToDo(taskTitle.value, "", false);
 
     addToDoToArray(newToDo);
     completeToDo();
@@ -85,6 +87,11 @@ function completeToDo() {
       todoItem.remove();
     });
   });
+}
 
-  console.log(checkBoxes);
+//function for adding a completed to do in right section
+function sortCompletedToDo() {
+  const completedtodo = document.querySelector(".completed-todo");
+  if (checkBox.checked) {
+  }
 }
