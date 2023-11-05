@@ -157,16 +157,28 @@ h2 {
   outline: none;
 }
 
+.todo-box {
+  display: flex;
+  flex-direction: column;
+}
+
 .todo-item-title {
+  font-size: 1.5rem;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .project-title {
   margin-left: 10px;
   font-size: 1.25rem;
+}
+
+.todo-description {
+  font-family: var(--app-fontfont-family);
+  font-size: 0.85rem;
+  margin: 0;
 }
 
 /*place for styling the modal*/

@@ -19,6 +19,8 @@ function addToDoToArray(toDo) {
 function openModal() {
   const addItem = document.querySelector("#add-todo");
   const modal = document.querySelector("dialog");
+  const taskTitle = document.querySelector(".task-title");
+  taskTitle.innerText = "";
 
   addItem.addEventListener("click", () => {
     modal.showModal();
@@ -40,6 +42,7 @@ function displayToDo() {
   const addTaskButton = document.querySelector(".add-task-button");
   const modal = document.querySelector("dialog");
   const taskTitle = document.querySelector(".task-title");
+  const taskDescription = document.querySelector(".task-description");
   const toDoContainer = document.querySelector(".need-todo");
 
   addTaskButton.addEventListener("click", (event) => {
@@ -47,21 +50,28 @@ function displayToDo() {
 
     const toDo = document.createElement("div");
     const checkBox = document.createElement("input");
+    const toDoBox = document.createElement("div");
     const toDoItem = document.createElement("p");
+    const toDODescription = document.createElement("p");
 
     toDoContainer.appendChild(toDo);
     toDo.appendChild(checkBox);
-    toDo.appendChild(toDoItem);
+    toDo.appendChild(toDoBox);
+    toDoBox.appendChild(toDoItem);
+    toDoBox.appendChild(toDODescription);
 
     toDoItem.innerText = taskTitle.value;
+    toDODescription.innerText = taskDescription.value;
 
     toDo.classList.add("to-do");
     toDoItem.classList.add("todo-item-title");
     checkBox.classList.add("todo-checkbox");
+    toDoBox.classList.add("todo-box");
+    toDODescription.classList.add("todo-description");
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
-    const newToDo = new ToDo(taskTitle.value, "", false);
+    const newToDo = new ToDo(taskTitle.value, taskDescription.value, false);
 
     addToDoToArray(newToDo);
     sortCompletedToDo(checkBox);
@@ -111,18 +121,28 @@ function renderToDoList() {
   toDoArray.forEach((todo) => {
     const toDo = document.createElement("div");
     const checkBox = document.createElement("input");
+    const toDoBox = document.createElement("div");
     const toDoItem = document.createElement("p");
+    const toDODescription = document.createElement("p");
 
     toDo.appendChild(checkBox);
-    toDo.appendChild(toDoItem);
+    toDo.appendChild(toDoBox);
+    toDoBox.appendChild(toDoItem);
+    toDoBox.appendChild(toDODescription);
 
     toDoItem.innerText = todo.taskName;
+    toDODescription.innerText = todo.description;
 
     toDo.classList.add("to-do");
     toDoItem.classList.add("todo-item-title");
+    toDoBox.classList.add("todo-box");
+    toDODescription.classList.add("todo-description");
     checkBox.classList.add("todo-checkbox");
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
+
+    // Set the checkbox state based on the completion status
+    checkBox.checked = todo.complete;
 
     toDoContainer.appendChild(toDo);
   });
