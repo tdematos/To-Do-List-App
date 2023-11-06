@@ -181,6 +181,20 @@ h2 {
   margin: 0;
 }
 
+#delete-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 35rem;
+  top: 0.5rem;
+  width: 10%;
+  cursor: pointer;
+}
+#delete-tod:hover {
+  background-color: red;
+}
+
 /*place for styling the modal*/
 dialog[open] {
   position: absolute;

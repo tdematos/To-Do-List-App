@@ -53,21 +53,26 @@ function displayToDo() {
     const toDoBox = document.createElement("div");
     const toDoItem = document.createElement("p");
     const toDODescription = document.createElement("p");
+    const deleteToDoItem = document.createElement("span");
 
     toDoContainer.appendChild(toDo);
     toDo.appendChild(checkBox);
     toDo.appendChild(toDoBox);
     toDoBox.appendChild(toDoItem);
     toDoBox.appendChild(toDODescription);
+    toDo.appendChild(deleteToDoItem);
 
     toDoItem.innerText = taskTitle.value;
     toDODescription.innerText = taskDescription.value;
+    deleteToDoItem.innerText = "delete";
 
     toDo.classList.add("to-do");
     toDoItem.classList.add("todo-item-title");
     checkBox.classList.add("todo-checkbox");
     toDoBox.classList.add("todo-box");
     toDODescription.classList.add("todo-description");
+    deleteToDoItem.classList.add("material-symbol-outlined");
+    deleteToDoItem.setAttribute("id", "delete-todo");
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
@@ -75,6 +80,7 @@ function displayToDo() {
 
     addToDoToArray(newToDo);
     sortCompletedToDo(checkBox);
+
     renderToDoList();
     modal.close();
   });
@@ -124,14 +130,17 @@ function renderToDoList() {
     const toDoBox = document.createElement("div");
     const toDoItem = document.createElement("p");
     const toDODescription = document.createElement("p");
+    const deleteToDoItem = document.createElement("span");
 
     toDo.appendChild(checkBox);
     toDo.appendChild(toDoBox);
     toDoBox.appendChild(toDoItem);
     toDoBox.appendChild(toDODescription);
+    toDo.appendChild(deleteToDoItem);
 
     toDoItem.innerText = todo.taskName;
     toDODescription.innerText = todo.description;
+    deleteToDoItem.innerText = "delete";
 
     toDo.classList.add("to-do");
     toDoItem.classList.add("todo-item-title");
@@ -140,11 +149,23 @@ function renderToDoList() {
     checkBox.classList.add("todo-checkbox");
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
+    deleteToDoItem.classList.add("material-symbols-outlined");
+    deleteToDoItem.setAttribute("id", "delete-todo");
 
     // Set the checkbox state based on the completion status
     checkBox.checked = todo.complete;
 
     toDoContainer.appendChild(toDo);
+    deleteToDo();
+  });
+}
+
+//a function for deleting todo's
+function deleteToDo() {
+  const deleteIcon = document.querySelector("#delete-todo");
+
+  deleteIcon.addEventListener("click", (array) => {
+    array.splice(i);
   });
 }
 
