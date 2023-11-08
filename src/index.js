@@ -167,10 +167,14 @@ function renderToDoList() {
 
 //a function for deleting todo's
 function deleteToDo() {
-  const deleteIcon = document.querySelector("#delete-todo");
+  const deleteIcon = document.querySelectorAll("#delete-todo");
 
-  deleteIcon.addEventListener("click", (array) => {
-    console.log("hello");
+  deleteIcon.forEach((icon) => {
+    icon.addEventListener("click", (event) => {
+      let toDoItem = event.target.parentNode;
+      toDoItem.remove();
+      console.log("turkey");
+    });
   });
 }
 
