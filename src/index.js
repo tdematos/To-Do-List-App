@@ -2,8 +2,8 @@
 const toDoArray = [];
 
 class ToDo {
-  constructor(taskName, description, complete) {
-    this.id;
+  constructor(id, taskName, description, complete) {
+    this.id = id;
     this.taskName = taskName;
     this.description = description;
     this.complete = complete;
@@ -76,7 +76,12 @@ function displayToDo() {
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
-    const newToDo = new ToDo(taskTitle.value, taskDescription.value, false);
+    const newToDo = new ToDo(
+      generateUniqueId(),
+      taskTitle.value,
+      taskDescription.value,
+      false
+    );
 
     addToDoToArray(newToDo);
     sortCompletedToDo(checkBox);
@@ -165,8 +170,13 @@ function deleteToDo() {
   const deleteIcon = document.querySelector("#delete-todo");
 
   deleteIcon.addEventListener("click", (array) => {
-    array.splice(i);
+    console.log("hello");
   });
+}
+
+//function for generating a unique ID
+function generateUniqueId() {
+  return Date.now() + Math.random().toString(36).substring(2, 9);
 }
 
 // Initialization function
