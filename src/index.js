@@ -167,14 +167,26 @@ function renderToDoList() {
 
 //a function for deleting todo's
 function deleteToDo() {
-  const deleteIcon = document.querySelectorAll("#delete-todo");
+  const toDoContainer = document.querySelector(".need-todo");
 
-  deleteIcon.forEach((icon) => {
-    icon.addEventListener("click", (event) => {
-      let toDoItem = event.target.parentNode;
-      toDoItem.remove();
-      console.log("turkey");
-    });
+  toDoContainer.addEventListener("click", (event) => {
+    if (event.target.id === "delete-todo") {
+      const todoItem = event.target.parentNode;
+      const taskName = todoItem.querySelector(".todo-item-title").innerText;
+
+      // Find the todo item in the array by its task name
+      const todo = toDoArray.find((todo) => todo.taskName === taskName);
+
+      if (todo) {
+        const todoIndex = toDoArray.indexOf(todo);
+
+        // Remove the todo item from the array
+        toDoArray.splice(todoIndex, 1);
+
+        // Re-render the todo list
+        renderToDoList();
+      }
+    }
   });
 }
 
