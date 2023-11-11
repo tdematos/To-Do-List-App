@@ -22,7 +22,7 @@ function addToDoToArray(toDo) {
 }
 
 //a function for adding projects
-(function addNewProject() {
+function openNewProjectModal() {
   const addProjectButton = document.querySelector("#add-project");
   const modal = document.querySelector(".project-modal");
   const projectTitle = document.querySelector(".project-title");
@@ -31,7 +31,17 @@ function addToDoToArray(toDo) {
   addProjectButton.addEventListener("click", () => {
     modal.showModal();
   });
-})();
+}
+
+//a function for closing project modal
+function closeNewProjectModal() {
+  const closeModalbutton = document.querySelector(".cancel-project-button");
+  const modal = document.querySelector(".project-modal");
+
+  closeModalbutton.addEventListener("click", () => {
+    modal.close();
+  });
+}
 
 // function for opening modal
 function openModal() {
@@ -215,6 +225,8 @@ function generateUniqueId() {
 
 // Initialization function
 function initialize() {
+  openNewProjectModal();
+  closeNewProjectModal();
   openModal();
   closeModal();
   displayToDo();
