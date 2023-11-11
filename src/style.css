@@ -102,6 +102,19 @@ h1 {
 
 h2 {
   margin: 10px;
+  height: 1.5rem;
+}
+
+#add-project {
+  position: relative;
+  left: 11rem;
+  bottom: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 2rem;
+  height: 2rem;
 }
 
 .projects {
