@@ -1,6 +1,6 @@
-// create an array that stores my todo's
+// create an array that stores my todo's and project
 const toDoArray = [];
-
+const projectArray = [];
 class ToDo {
   constructor(id, taskName, description, complete) {
     this.id = id;
@@ -22,6 +22,28 @@ function addToDoToArray(toDo) {
 }
 
 //a function for adding projects
+function addProjectModal() {
+  const addProjectButton = document.querySelector(".add-project-button");
+  const projectTitleInput = document.querySelector(".project-title");
+  const projectList = document.querySelector(".project-list");
+  const modal = document.querySelector(".project-modal");
+
+  addProjectButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const projectItem = document.createElement("p");
+
+    projectList.appendChild(projectItem);
+    projectItem.classList.add("project-item");
+
+    projectItem.innerText = projectTitleInput.value;
+
+    projectTitleInput.value = "";
+    modal.close();
+  });
+}
+
+//a function for opening projects
 function openNewProjectModal() {
   const addProjectButton = document.querySelector("#add-project");
   const modal = document.querySelector(".project-modal");
@@ -227,6 +249,7 @@ function generateUniqueId() {
 function initialize() {
   openNewProjectModal();
   closeNewProjectModal();
+  addProjectModal();
   openModal();
   closeModal();
   displayToDo();
