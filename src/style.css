@@ -118,6 +118,7 @@ h2 {
   width: 2rem;
   height: 2rem;
   margin: 10px;
+  cursor: pointer;
 }
 
 .projects {

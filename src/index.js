@@ -22,9 +22,16 @@ function addToDoToArray(toDo) {
 }
 
 //a function for adding projects
-function addNewProject() {
-  const addProjectButton = document.querySelector("#");
-}
+(function addNewProject() {
+  const addProjectButton = document.querySelector("#add-project");
+  const modal = document.querySelector(".project-modal");
+  const projectTitle = document.querySelector(".project-title");
+  projectTitle.innerText = "";
+
+  addProjectButton.addEventListener("click", () => {
+    modal.showModal();
+  });
+})();
 
 // function for opening modal
 function openModal() {
