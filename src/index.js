@@ -10,9 +10,20 @@ class ToDo {
   }
 }
 
+class Projects {
+  constructor(ToDo) {
+    this.ToDo = ToDo;
+  }
+}
+
 // create a function for pushing todos to array
 function addToDoToArray(toDo) {
   toDoArray.push(toDo);
+}
+
+//a function for adding projects
+function addNewProject() {
+  const addProjectButton = document.querySelector("#");
 }
 
 // function for opening modal
