@@ -1,6 +1,7 @@
 // create an array that stores my todo's and project
 const toDoArray = [];
 const projectArray = [];
+
 class ToDo {
   constructor(id, taskName, description, complete) {
     this.id = id;
@@ -10,9 +11,10 @@ class ToDo {
   }
 }
 
-class Projects {
-  constructor(ToDoList) {
-    this.ToDo = ToDoList;
+class Project {
+  constructor(ProjectName) {
+    this.ProjectName = ProjectName;
+    this.ToDo = [];
   }
 }
 
@@ -21,29 +23,37 @@ function addToDoToArray(toDo) {
   toDoArray.push(toDo);
 }
 
-//a function for adding projects
+// create a function for adding a project to array
+function addProjectToArray(Project) {
+  projectArray.push(Project);
+}
+
+// a function for adding projects
 function addProjectModal() {
   const addProjectButton = document.querySelector(".add-project-button");
   const projectTitleInput = document.querySelector(".project-title");
-  const projectList = document.querySelector(".project-list");
   const modal = document.querySelector(".project-modal");
 
   addProjectButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     const projectItem = document.createElement("p");
-
-    projectList.appendChild(projectItem);
     projectItem.classList.add("project-item");
-
     projectItem.innerText = projectTitleInput.value;
+
+    const project = new Project(projectTitleInput.value);
+
+    addProjectToArray(project);
 
     projectTitleInput.value = "";
     modal.close();
+
+    // Render the projects
+    renderProjects();
   });
 }
 
-//a function for opening projects
+// a function for opening projects
 function openNewProjectModal() {
   const addProjectButton = document.querySelector("#add-project");
   const modal = document.querySelector(".project-modal");
@@ -55,7 +65,7 @@ function openNewProjectModal() {
   });
 }
 
-//a function for closing project modal
+// a function for closing project modal
 function closeNewProjectModal() {
   const closeModalbutton = document.querySelector(".cancel-project-button");
   const modal = document.querySelector(".project-modal");
@@ -87,7 +97,7 @@ function closeModal() {
   });
 }
 
-// create a function for displaying todo from array
+// function for displaying todo from array
 function displayToDo() {
   const addTaskButton = document.querySelector(".add-task-button");
   const modal = document.querySelector("dialog");
@@ -144,7 +154,7 @@ function displayToDo() {
   });
 }
 
-// function that completes todo and moves them to bottom of hr rule
+// function that completes todo and moves them to the bottom of hr rule
 function completeToDo() {
   const toDoContainer = document.querySelector(".need-todo");
 
@@ -165,9 +175,6 @@ function sortCompletedToDo(checkBox) {
   const completedToDo = toDoArray.find((todo) => todo.taskName === taskName);
 
   if (completedToDo) {
-    // Set complete property to true
-    // completedToDo.complete = true;
-
     // Remove it from the original position
     toDoArray.splice(toDoArray.indexOf(completedToDo), 1);
 
@@ -176,7 +183,7 @@ function sortCompletedToDo(checkBox) {
   }
 }
 
-// function to rerender todo
+// function to re-render todo
 function renderToDoList() {
   const toDoContainer = document.querySelector(".need-todo");
 
@@ -218,7 +225,7 @@ function renderToDoList() {
   });
 }
 
-//a function for deleting todo's
+// a function for deleting todo's
 function deleteToDo() {
   const toDoContainer = document.querySelector(".need-todo");
 
@@ -243,13 +250,17 @@ function deleteToDo() {
   });
 }
 
-//function for generating a unique ID
+// function for generating a unique ID
 function generateUniqueId() {
   return Date.now() + Math.random().toString(36).substring(2, 9);
 }
 
 // Initialization function
 function initialize() {
+  // Add the default project
+  const defaultProject = new Project("Shopping List");
+  projectArray.push(defaultProject);
+
   openNewProjectModal();
   closeNewProjectModal();
   addProjectModal();
@@ -257,6 +268,25 @@ function initialize() {
   closeModal();
   displayToDo();
   completeToDo();
+
+  // Render the projects
+  renderProjects();
+}
+
+// Function to render projects
+function renderProjects() {
+  const projectListContainer = document.querySelector(".project-list");
+
+  // Clear existing projects
+  projectListContainer.innerHTML = "";
+
+  // Display each project
+  projectArray.forEach((project) => {
+    const projectItem = document.createElement("p");
+    projectItem.classList.add("project-item");
+    projectItem.innerText = project.ProjectName;
+    projectListContainer.appendChild(projectItem);
+  });
 }
 
 // Call initialization function when the page loads
