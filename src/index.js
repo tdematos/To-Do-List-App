@@ -11,8 +11,8 @@ class ToDo {
 }
 
 class Projects {
-  constructor(ToDo) {
-    this.ToDo = ToDo;
+  constructor(ToDoList) {
+    this.ToDo = ToDoList;
   }
 }
 
@@ -135,6 +135,9 @@ function displayToDo() {
 
     addToDoToArray(newToDo);
     sortCompletedToDo(checkBox);
+
+    taskTitle.value = "";
+    taskDescription.value = "";
 
     renderToDoList();
     modal.close();
