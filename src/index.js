@@ -41,6 +41,7 @@ function addProjectModal() {
 
     const project = new Project(projectTitleInput.value);
 
+    console.log(project);
     addProjectToArray(project);
 
     projectTitleInput.value = "";
@@ -277,7 +278,7 @@ function initialize() {
   renderProjects();
   openModal();
   closeModal();
-  displayToDo();
+  displayToDo(defaultProject);
   completeToDo();
 }
 
