@@ -1,5 +1,4 @@
 // create an array that stores my todo's and project
-const toDoArray = [];
 const projectArray = [];
 
 class ToDo {
@@ -16,11 +15,10 @@ class Project {
     this.ProjectName = ProjectName;
     this.ToDo = [];
   }
-}
 
-// create a function for pushing todos to array
-function addToDoToArray(toDo) {
-  toDoArray.push(toDo);
+  addItemToProject(toDo) {
+    this.ToDo.push(toDo);
+  }
 }
 
 // create a function for adding a project to array
@@ -98,7 +96,7 @@ function closeModal() {
 }
 
 // function for displaying todo from array
-function displayToDo() {
+function displayToDo(project) {
   const addTaskButton = document.querySelector(".add-task-button");
   const modal = document.querySelector("dialog");
   const taskTitle = document.querySelector(".task-title");
@@ -143,7 +141,7 @@ function displayToDo() {
       false
     );
 
-    addToDoToArray(newToDo);
+    project.addItemToProject(newToDo);
     sortCompletedToDo(checkBox);
 
     taskTitle.value = "";
@@ -171,15 +169,20 @@ function sortCompletedToDo(checkBox) {
   const todoItem = checkBox.parentNode;
   const taskName = todoItem.querySelector(".todo-item-title").innerText;
 
-  // Find the todo item in the array by its task name
-  const completedToDo = toDoArray.find((todo) => todo.taskName === taskName);
+  // Find the todo item in the projects by its task name
+  for (const project of projectArray) {
+    const completedToDo = project.ToDo.find(
+      (todo) => todo.taskName === taskName
+    );
 
-  if (completedToDo) {
-    // Remove it from the original position
-    toDoArray.splice(toDoArray.indexOf(completedToDo), 1);
+    if (completedToDo) {
+      // Remove it from the original position
+      project.ToDo.splice(project.ToDo.indexOf(completedToDo), 1);
 
-    // Push it to the end
-    toDoArray.push(completedToDo);
+      // Push it to the end
+      project.ToDo.push(completedToDo);
+      break; // Exit the loop once the item is found and moved
+    }
   }
 }
 
@@ -189,40 +192,44 @@ function renderToDoList() {
 
   toDoContainer.innerHTML = "";
 
-  toDoArray.forEach((todo) => {
-    const toDo = document.createElement("div");
-    const checkBox = document.createElement("input");
-    const toDoBox = document.createElement("div");
-    const toDoItem = document.createElement("p");
-    const toDODescription = document.createElement("p");
-    const deleteToDoItem = document.createElement("span");
+  // Iterate through each project's todos
+  for (const project of projectArray) {
+    project.ToDo.forEach((todo) => {
+      const toDo = document.createElement("div");
+      const checkBox = document.createElement("input");
+      const toDoBox = document.createElement("div");
+      const toDoItem = document.createElement("p");
+      const toDODescription = document.createElement("p");
+      const deleteToDoItem = document.createElement("span");
 
-    toDo.appendChild(checkBox);
-    toDo.appendChild(toDoBox);
-    toDoBox.appendChild(toDoItem);
-    toDoBox.appendChild(toDODescription);
-    toDo.appendChild(deleteToDoItem);
+      toDo.appendChild(checkBox);
+      toDo.appendChild(toDoBox);
+      toDoBox.appendChild(toDoItem);
+      toDoBox.appendChild(toDODescription);
+      toDo.appendChild(deleteToDoItem);
 
-    toDoItem.innerText = todo.taskName;
-    toDODescription.innerText = todo.description;
-    deleteToDoItem.innerText = "delete";
+      toDoItem.innerText = todo.taskName;
+      toDODescription.innerText = todo.description;
+      deleteToDoItem.innerText = "delete";
 
-    toDo.classList.add("to-do");
-    toDoItem.classList.add("todo-item-title");
-    toDoBox.classList.add("todo-box");
-    toDODescription.classList.add("todo-description");
-    checkBox.classList.add("todo-checkbox");
-    checkBox.setAttribute("type", "checkbox");
-    checkBox.setAttribute("name", "todo-item-check");
-    deleteToDoItem.classList.add("material-symbols-outlined");
-    deleteToDoItem.setAttribute("id", "delete-todo");
+      toDo.classList.add("to-do");
+      toDoItem.classList.add("todo-item-title");
+      toDoBox.classList.add("todo-box");
+      toDODescription.classList.add("todo-description");
+      checkBox.classList.add("todo-checkbox");
+      checkBox.setAttribute("type", "checkbox");
+      checkBox.setAttribute("name", "todo-item-check");
+      deleteToDoItem.classList.add("material-symbols-outlined");
+      deleteToDoItem.setAttribute("id", "delete-todo");
 
-    // Set the checkbox state based on the completion status
-    checkBox.checked = todo.complete;
+      // Set the checkbox state based on the completion status
+      checkBox.checked = todo.complete;
 
-    toDoContainer.appendChild(toDo);
-    deleteToDo();
-  });
+      toDoContainer.appendChild(toDo);
+    });
+  }
+
+  deleteToDo();
 }
 
 // a function for deleting todo's
@@ -234,17 +241,20 @@ function deleteToDo() {
       const todoItem = event.target.parentNode;
       const taskName = todoItem.querySelector(".todo-item-title").innerText;
 
-      // Find the todo item in the array by its task name
-      const todo = toDoArray.find((todo) => todo.taskName === taskName);
+      // Find the project containing the todo item
+      for (const project of projectArray) {
+        const todo = project.ToDo.find((todo) => todo.taskName === taskName);
 
-      if (todo) {
-        const todoIndex = toDoArray.indexOf(todo);
+        if (todo) {
+          const todoIndex = project.ToDo.indexOf(todo);
 
-        // Remove the todo item from the array
-        toDoArray.splice(todoIndex, 1);
+          // Remove the todo item from the project's array
+          project.ToDo.splice(todoIndex, 1);
 
-        // Re-render the todo list
-        renderToDoList();
+          // Re-render the todo list
+          renderToDoList();
+          break; // Exit the loop once the todo is found and deleted
+        }
       }
     }
   });
@@ -264,13 +274,11 @@ function initialize() {
   openNewProjectModal();
   closeNewProjectModal();
   addProjectModal();
+  renderProjects();
   openModal();
   closeModal();
   displayToDo();
   completeToDo();
-
-  // Render the projects
-  renderProjects();
 }
 
 // Function to render projects
@@ -291,5 +299,3 @@ function renderProjects() {
 
 // Call initialization function when the page loads
 document.addEventListener("DOMContentLoaded", initialize);
-
-console.log(toDoArray);
