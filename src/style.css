@@ -140,6 +140,10 @@ h2 {
   margin: 2px;
 }
 
+.project-item:hover {
+  background-color: yellow;
+}
+
 .todo-panel {
   width: 100%;
   background-color: var(--todo-background-color);

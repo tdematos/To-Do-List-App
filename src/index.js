@@ -269,7 +269,7 @@ function generateUniqueId() {
 // Initialization function
 function initialize() {
   // Add the default project
-  const defaultProject = new Project("Shopping List");
+  const defaultProject = new Project("My Todo List");
   projectArray.push(defaultProject);
 
   openNewProjectModal();
