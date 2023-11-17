@@ -1,5 +1,11 @@
 // create an array that stores my todo's and project
 const projectArray = [];
+let selectedProject = null;
+
+// Function to set the selected project
+function setSelectedProject(project) {
+  selectedProject = project;
+}
 
 class ToDo {
   constructor(id, taskName, description, complete) {
@@ -23,6 +29,8 @@ class Project {
 
 // create a function for adding a project to array
 function addProjectToArray(Project) {
+  projectArray.length = 0;
+
   projectArray.push(Project);
 }
 
@@ -41,7 +49,6 @@ function addProjectModal() {
 
     const project = new Project(projectTitleInput.value);
 
-    console.log(project);
     addProjectToArray(project);
 
     projectTitleInput.value = "";
@@ -49,6 +56,18 @@ function addProjectModal() {
 
     // Render the projects
     renderProjects();
+  });
+}
+
+//a function that swithes between projects
+function switchProject() {
+  const projectItems = document.querySelectorAll(".project-item");
+
+  console.log(projectItems);
+  projectItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      console.log(item.innerText);
+    });
   });
 }
 
@@ -107,6 +126,12 @@ function displayToDo(project) {
   addTaskButton.addEventListener("click", (event) => {
     event.preventDefault();
 
+    // Check if a project is selected
+    if (!selectedProject) {
+      alert("Please select a project to add todos.");
+      return;
+    }
+
     const toDo = document.createElement("div");
     const checkBox = document.createElement("input");
     const toDoBox = document.createElement("div");
@@ -142,14 +167,16 @@ function displayToDo(project) {
       false
     );
 
-    project.addItemToProject(newToDo);
+    selectedProject.addItemToProject(newToDo);
     sortCompletedToDo(checkBox);
 
+    // Clear input fields and close modal
     taskTitle.value = "";
     taskDescription.value = "";
-
-    renderToDoList();
     modal.close();
+
+    // Render the todos for the selected project
+    renderToDoList();
   });
 }
 
@@ -190,12 +217,10 @@ function sortCompletedToDo(checkBox) {
 // function to re-render todo
 function renderToDoList() {
   const toDoContainer = document.querySelector(".need-todo");
-
   toDoContainer.innerHTML = "";
 
-  // Iterate through each project's todos
-  for (const project of projectArray) {
-    project.ToDo.forEach((todo) => {
+  if (selectedProject) {
+    selectedProject.ToDo.forEach((todo) => {
       const toDo = document.createElement("div");
       const checkBox = document.createElement("input");
       const toDoBox = document.createElement("div");
@@ -215,15 +240,14 @@ function renderToDoList() {
 
       toDo.classList.add("to-do");
       toDoItem.classList.add("todo-item-title");
-      toDoBox.classList.add("todo-box");
-      toDODescription.classList.add("todo-description");
       checkBox.classList.add("todo-checkbox");
       checkBox.setAttribute("type", "checkbox");
       checkBox.setAttribute("name", "todo-item-check");
+      toDoBox.classList.add("todo-box");
+      toDODescription.classList.add("todo-description");
       deleteToDoItem.classList.add("material-symbols-outlined");
       deleteToDoItem.setAttribute("id", "delete-todo");
 
-      // Set the checkbox state based on the completion status
       checkBox.checked = todo.complete;
 
       toDoContainer.appendChild(toDo);
@@ -286,14 +310,18 @@ function initialize() {
 function renderProjects() {
   const projectListContainer = document.querySelector(".project-list");
 
-  // Clear existing projects
-  projectListContainer.innerHTML = "";
-
-  // Display each project
   projectArray.forEach((project) => {
     const projectItem = document.createElement("p");
     projectItem.classList.add("project-item");
     projectItem.innerText = project.ProjectName;
+
+    projectItem.addEventListener("click", () => {
+      // Set the selected project when a project is clicked
+      setSelectedProject(project);
+      // Render todos for the selected project
+      renderToDoList();
+    });
+
     projectListContainer.appendChild(projectItem);
   });
 }

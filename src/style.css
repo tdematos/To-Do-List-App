@@ -138,6 +138,7 @@ h2 {
   width: 60%;
   height: 1.5rem;
   margin: 2px;
+  cursor: pointer;
 }
 
 .project-item:hover {
@@ -173,7 +174,7 @@ h2 {
   /* appearance: none; */
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: 25%;
   border: 1px solid black;
   outline: none;
 }
