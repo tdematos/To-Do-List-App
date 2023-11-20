@@ -29,7 +29,7 @@ class Project {
 
 // create a function for adding a project to array
 function addProjectToArray(Project) {
-  projectArray.length = 0;
+  // projectArray.length = 0;
 
   projectArray.push(Project);
 }
@@ -267,19 +267,21 @@ function deleteToDo() {
       const taskName = todoItem.querySelector(".todo-item-title").innerText;
 
       // Find the project containing the todo item
-      for (const project of projectArray) {
-        const todo = project.ToDo.find((todo) => todo.taskName === taskName);
+      const foundProject = projectArray.find((project) => {
+        return project.ToDo.some((todo) => todo.taskName === taskName);
+      });
 
-        if (todo) {
-          const todoIndex = project.ToDo.indexOf(todo);
+      if (foundProject) {
+        const todo = foundProject.ToDo.find(
+          (todo) => todo.taskName === taskName
+        );
+        const todoIndex = foundProject.ToDo.indexOf(todo);
 
-          // Remove the todo item from the project's array
-          project.ToDo.splice(todoIndex, 1);
+        // Remove the todo item from the project's array
+        foundProject.ToDo.splice(todoIndex, 1);
 
-          // Re-render the todo list
-          renderToDoList();
-          break; // Exit the loop once the todo is found and deleted
-        }
+        // Re-render only the todo list for the specific project
+        renderToDoList();
       }
     }
   });
@@ -309,6 +311,9 @@ function initialize() {
 // Function to render projects
 function renderProjects() {
   const projectListContainer = document.querySelector(".project-list");
+
+  // Clear existing projects
+  projectListContainer.innerHTML = "";
 
   projectArray.forEach((project) => {
     const projectItem = document.createElement("p");
