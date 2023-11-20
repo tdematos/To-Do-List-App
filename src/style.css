@@ -163,8 +163,13 @@ h2 {
 .to-do {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  width: 50%;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .todo-checkbox {
@@ -207,7 +212,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /* position: relative; */
   left: 20rem;
   top: 0.5rem;
   width: 10%;

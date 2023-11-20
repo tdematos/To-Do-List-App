@@ -138,10 +138,12 @@ function displayToDo(project) {
     const toDoItem = document.createElement("p");
     const toDODescription = document.createElement("p");
     const deleteToDoItem = document.createElement("span");
+    const container = document.createElement("div");
 
     toDoContainer.appendChild(toDo);
-    toDo.appendChild(checkBox);
-    toDo.appendChild(toDoBox);
+    toDo.appendChild(container);
+    container.appendChild(checkBox);
+    container.appendChild(toDoBox);
     toDoBox.appendChild(toDoItem);
     toDoBox.appendChild(toDODescription);
     toDo.appendChild(deleteToDoItem);
@@ -150,6 +152,7 @@ function displayToDo(project) {
     toDODescription.innerText = taskDescription.value;
     deleteToDoItem.innerText = "delete";
 
+    container.classList.add("input-container");
     toDo.classList.add("to-do");
     toDoItem.classList.add("todo-item-title");
     checkBox.classList.add("todo-checkbox");
@@ -227,9 +230,11 @@ function renderToDoList() {
       const toDoItem = document.createElement("p");
       const toDODescription = document.createElement("p");
       const deleteToDoItem = document.createElement("span");
+      const container = document.createElement("div");
 
-      toDo.appendChild(checkBox);
-      toDo.appendChild(toDoBox);
+      toDo.appendChild(container);
+      container.appendChild(checkBox);
+      container.appendChild(toDoBox);
       toDoBox.appendChild(toDoItem);
       toDoBox.appendChild(toDODescription);
       toDo.appendChild(deleteToDoItem);
@@ -238,6 +243,7 @@ function renderToDoList() {
       toDODescription.innerText = todo.description;
       deleteToDoItem.innerText = "delete";
 
+      container.classList.add("input-container");
       toDo.classList.add("to-do");
       toDoItem.classList.add("todo-item-title");
       checkBox.classList.add("todo-checkbox");
