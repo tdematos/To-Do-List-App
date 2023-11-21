@@ -24,6 +24,7 @@ class Project {
 
   addItemToProject(toDo) {
     this.ToDo.push(toDo);
+    addItemToLocalStorage(this.ToDo);
   }
 }
 
