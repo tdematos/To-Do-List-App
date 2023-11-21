@@ -27,6 +27,12 @@ class Project {
   }
 }
 
+//a function that adds item to localstorage
+function addItemToLocalStorage(item) {
+  console.log("Working test");
+  localStorage.setItem("items", JSON.stringify(item));
+}
+
 // create a function for adding a project to array
 function addProjectToArray(Project) {
   // projectArray.length = 0;
@@ -50,6 +56,7 @@ function addProjectModal() {
     const project = new Project(projectTitleInput.value);
 
     addProjectToArray(project);
+    addItemToLocalStorage(projectArray);
 
     projectTitleInput.value = "";
     modal.close();
@@ -303,6 +310,8 @@ function initialize() {
   // Add the default project
   const defaultProject = new Project("My Todo List");
   projectArray.push(defaultProject);
+
+  localStorage.setItem("items", JSON.stringify(projectArray));
 
   openNewProjectModal();
   closeNewProjectModal();
