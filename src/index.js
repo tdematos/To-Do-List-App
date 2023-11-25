@@ -1,6 +1,13 @@
 // create an array that stores my todo's and project
-const projectArray = [];
+const projectArray = localStorage.getItem("projects")
+  ? JSON.parse(localStorage.getItem("projects"))
+  : [];
 let selectedProject = null;
+
+//create a function for adding items to local storage
+function addToLocalStorage(array) {
+  localStorage.setItem("projects", JSON.stringify(array));
+}
 
 // Function to set the selected project
 function setSelectedProject(project) {
@@ -24,14 +31,7 @@ class Project {
 
   addItemToProject(toDo) {
     this.ToDo.push(toDo);
-    addItemToLocalStorage(this.ToDo);
   }
-}
-
-//a function that adds item to localstorage
-function addItemToLocalStorage(item) {
-  console.log("Working test");
-  localStorage.setItem("items", JSON.stringify(item));
 }
 
 // create a function for adding a project to array
@@ -57,7 +57,7 @@ function addProjectModal() {
     const project = new Project(projectTitleInput.value);
 
     addProjectToArray(project);
-    addItemToLocalStorage(projectArray);
+    addToLocalStorage(projectArray);
 
     projectTitleInput.value = "";
     modal.close();
@@ -311,8 +311,6 @@ function initialize() {
   // Add the default project
   const defaultProject = new Project("My Todo List");
   projectArray.push(defaultProject);
-
-  localStorage.setItem("items", JSON.stringify(projectArray));
 
   openNewProjectModal();
   closeNewProjectModal();
