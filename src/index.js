@@ -13,7 +13,7 @@ function toggleDarkMode() {
   const bodyElement = document.querySelector("body");
 
   darkModeButton.addEventListener("click", () => {
-    bodyElement.classList.toggle("dark-mode");
+    bodyElement.classList.toggle("dark-mode-theme");
   });
 }
 
@@ -322,6 +322,7 @@ function initialize() {
   closeModal();
   displayToDo(defaultProject);
   completeToDo();
+  toggleDarkMode();
 }
 
 // Function to render projects

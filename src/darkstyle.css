@@ -1,0 +1,53 @@
+.dark-mode-theme {
+  background-color: rgb(44, 44, 44);
+  color: white;
+
+  .todo-panel {
+    background-color: rgb(44, 44, 44);
+    color: white;
+  }
+
+  .projects {
+    background-color: rgb(19, 19, 19);
+  }
+
+  .top-nav {
+    background-color: rgb(19, 19, 19);
+  }
+  .dark-mode {
+    background-color: lightgrey;
+  }
+
+  .dark-mode:hover {
+    background-color: rgb(33, 33, 84);
+    color: white;
+  }
+
+  .project-item {
+    color: black;
+  }
+
+  .modal {
+    background-color: rgb(19, 19, 19);
+    color: white;
+  }
+
+  .task-title {
+    background-color: rgb(19, 19, 19);
+    color: white;
+  }
+  .task-description {
+    background-color: rgb(19, 19, 19);
+    color: white;
+  }
+
+  .project-modal {
+    background-color: rgb(19, 19, 19);
+    color: white;
+  }
+
+  .project-title {
+    background-color: rgb(19, 19, 19);
+    color: white;
+  }
+}
