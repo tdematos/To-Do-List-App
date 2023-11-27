@@ -1,17 +1,20 @@
 // create an array that stores my todo's and project
-const projectArray = localStorage.getItem("projects")
-  ? JSON.parse(localStorage.getItem("projects"))
-  : [];
+const projectArray = [];
 let selectedProject = null;
-
-//create a function for adding items to local storage
-function addToLocalStorage(array) {
-  localStorage.setItem("projects", JSON.stringify(array));
-}
 
 // Function to set the selected project
 function setSelectedProject(project) {
   selectedProject = project;
+}
+
+//A function for toggling dark mode
+function toggleDarkMode() {
+  const darkModeButton = document.querySelector(".dark-mode");
+  const bodyElement = document.querySelector("body");
+
+  darkModeButton.addEventListener("click", () => {
+    bodyElement.classList.toggle("dark-mode");
+  });
 }
 
 class ToDo {
@@ -57,7 +60,6 @@ function addProjectModal() {
     const project = new Project(projectTitleInput.value);
 
     addProjectToArray(project);
-    addToLocalStorage(projectArray);
 
     projectTitleInput.value = "";
     modal.close();
