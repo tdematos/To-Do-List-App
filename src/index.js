@@ -1,3 +1,5 @@
+import "./style.css";
+
 // create an array that stores my todo's and project
 const projectArray = [];
 let selectedProject = null;
