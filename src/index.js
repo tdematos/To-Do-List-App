@@ -1,4 +1,5 @@
-import "./style.css";
+// import "./style.css";
+// import { compareAsc, format } from "date-fns";
 
 // create an array that stores my todo's and project
 const projectArray = [];
@@ -20,11 +21,12 @@ function toggleDarkMode() {
 }
 
 class ToDo {
-  constructor(id, taskName, description, complete) {
+  constructor(id, taskName, description, complete, date) {
     this.id = id;
     this.taskName = taskName;
     this.description = description;
     this.complete = complete;
+    this.date = date;
   }
 }
 
@@ -41,8 +43,6 @@ class Project {
 
 // create a function for adding a project to array
 function addProjectToArray(Project) {
-  // projectArray.length = 0;
-
   projectArray.push(Project);
 }
 
