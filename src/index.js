@@ -134,6 +134,7 @@ function displayToDo(project) {
   const taskTitle = document.querySelector(".task-title");
   const taskDescription = document.querySelector(".task-description");
   const toDoContainer = document.querySelector(".need-todo");
+  const dueDateSelected = document.querySelector(".due-date");
 
   addTaskButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -165,6 +166,7 @@ function displayToDo(project) {
     toDoItem.innerText = taskTitle.value;
     toDODescription.innerText = taskDescription.value;
     deleteToDoItem.innerText = "delete";
+    taskDueDate.innerText = dueDateSelected.value;
 
     container.classList.add("input-container");
     toDo.classList.add("to-do");
@@ -182,7 +184,8 @@ function displayToDo(project) {
       generateUniqueId(),
       taskTitle.value,
       taskDescription.value,
-      false
+      false,
+      dueDateSelected.value
     );
 
     selectedProject.addItemToProject(newToDo);
@@ -246,17 +249,20 @@ function renderToDoList() {
       const toDODescription = document.createElement("p");
       const deleteToDoItem = document.createElement("span");
       const container = document.createElement("div");
+      const taskDueDate = document.createElement("p");
 
       toDo.appendChild(container);
       container.appendChild(checkBox);
       container.appendChild(toDoBox);
       toDoBox.appendChild(toDoItem);
       toDoBox.appendChild(toDODescription);
+      toDoBox.appendChild(taskDueDate);
       toDo.appendChild(deleteToDoItem);
 
       toDoItem.innerText = todo.taskName;
       toDODescription.innerText = todo.description;
       deleteToDoItem.innerText = "delete";
+      taskDueDate.innerText = todo.date;
 
       container.classList.add("input-container");
       toDo.classList.add("to-do");
@@ -264,6 +270,7 @@ function renderToDoList() {
       checkBox.classList.add("todo-checkbox");
       checkBox.setAttribute("type", "checkbox");
       checkBox.setAttribute("name", "todo-item-check");
+      taskDueDate.classList.add("task-due-date");
       toDoBox.classList.add("todo-box");
       toDODescription.classList.add("todo-description");
       deleteToDoItem.classList.add("material-symbols-outlined");
@@ -328,6 +335,7 @@ function initialize() {
   displayToDo(defaultProject);
   completeToDo();
   toggleDarkMode();
+  console.log(projectArray);
 }
 
 // Function to render projects
