@@ -1,4 +1,4 @@
-// import "./style.css";
+import "./style.css";
 // import { compareAsc, format } from "date-fns";
 
 // create an array that stores my todo's and project
