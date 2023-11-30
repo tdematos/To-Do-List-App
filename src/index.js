@@ -151,6 +151,7 @@ function displayToDo(project) {
     const toDODescription = document.createElement("p");
     const deleteToDoItem = document.createElement("span");
     const container = document.createElement("div");
+    const taskDueDate = document.createElement("p");
 
     toDoContainer.appendChild(toDo);
     toDo.appendChild(container);
@@ -158,6 +159,7 @@ function displayToDo(project) {
     container.appendChild(toDoBox);
     toDoBox.appendChild(toDoItem);
     toDoBox.appendChild(toDODescription);
+    toDoBox.appendChild(taskDueDate);
     toDo.appendChild(deleteToDoItem);
 
     toDoItem.innerText = taskTitle.value;
@@ -170,6 +172,7 @@ function displayToDo(project) {
     checkBox.classList.add("todo-checkbox");
     toDoBox.classList.add("todo-box");
     toDODescription.classList.add("todo-description");
+    taskDueDate.classList.add("task-due-date");
     deleteToDoItem.classList.add("material-symbol-outlined");
     deleteToDoItem.setAttribute("id", "delete-todo");
     checkBox.setAttribute("type", "checkbox");

@@ -257,6 +257,15 @@ dialog[open] {
   border: none;
 }
 
+.duedate-container {
+  margin-top: 3rem;
+  width: 50%;
+}
+
+.due-date-label {
+  color: red;
+}
+
 .modal-buttons {
   border-top: 1px solid lightgray;
   display: flex;

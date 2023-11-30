@@ -23,8 +23,10 @@
       <div class="input-box">
         <input class="task-title" type="text" placeholder="Task name" />
         <input class="task-description" type="text" placeholder="Description" />
-        <label for="due-date">Select a date:</label>
-        <input type="date" id="due-date" name="due-date" />
+        <span class="duedate-container">
+          <label class="due-date-label" for="due-date">Due Date:</label>
+          <input class="due-date" type="date" id="due-date" name="due-date" />
+        </span>
       </div>
       <div class="modal-buttons">
         <button class="cancel-button">Cancel</button>
