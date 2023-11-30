@@ -266,6 +266,11 @@ dialog[open] {
   color: red;
 }
 
+.task-due-date {
+  margin: 2px;
+  background-color: yellow;
+}
+
 .modal-buttons {
   border-top: 1px solid lightgray;
   display: flex;
