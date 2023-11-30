@@ -1,6 +1,19 @@
 (() => {
   "use strict";
   var n = {
+      797: (n, e, t) => {
+        t.d(e, { Z: () => c });
+        var o = t(81),
+          r = t.n(o),
+          i = t(645),
+          a = t.n(i)()(r());
+        a.push([
+          n.id,
+          ".dark-mode-theme {\n  background-color: rgb(44, 44, 44);\n  color: white;\n\n  .todo-panel {\n    background-color: rgb(44, 44, 44);\n    color: white;\n  }\n\n  .projects {\n    background-color: rgb(19, 19, 19);\n  }\n\n  .top-nav {\n    background-color: rgb(19, 19, 19);\n  }\n  .dark-mode {\n    background-color: lightgrey;\n  }\n\n  .dark-mode:hover {\n    background-color: rgb(33, 33, 84);\n    color: white;\n  }\n\n  .project-item {\n    color: black;\n  }\n\n  .modal {\n    background-color: rgb(19, 19, 19);\n    color: white;\n  }\n\n  .task-title {\n    background-color: rgb(19, 19, 19);\n    color: white;\n  }\n  .task-description {\n    background-color: rgb(19, 19, 19);\n    color: white;\n  }\n\n  .project-modal {\n    background-color: rgb(19, 19, 19);\n    color: white;\n  }\n\n  .project-title {\n    background-color: rgb(19, 19, 19);\n    color: white;\n  }\n}\n",
+          "",
+        ]);
+        const c = a;
+      },
       426: (n, e, t) => {
         t.d(e, { Z: () => c });
         var o = t(81),
@@ -278,6 +291,15 @@
         p = t.n(s),
         f = t(426),
         m = {};
+      (m.styleTagTransform = p()),
+        (m.setAttributes = d()),
+        (m.insert = a().bind(null, "head")),
+        (m.domAPI = r()),
+        (m.insertStyleElement = u()),
+        e()(f.Z, m),
+        f.Z && f.Z.locals && f.Z.locals;
+      var b = t(797),
+        g = {};
       function h(n) {
         return (
           (h =
@@ -296,12 +318,12 @@
           h(n)
         );
       }
-      function b(n, e) {
+      function v(n, e) {
         (null == e || e > n.length) && (e = n.length);
         for (var t = 0, o = new Array(e); t < e; t++) o[t] = n[t];
         return o;
       }
-      function g(n, e) {
+      function y(n, e) {
         for (var t = 0; t < e.length; t++) {
           var o = e[t];
           (o.enumerable = o.enumerable || !1),
@@ -328,41 +350,41 @@
         }
         var r;
       }
-      function y(n, e, t) {
+      function x(n, e, t) {
         return (
-          e && g(n.prototype, e),
-          t && g(n, t),
+          e && y(n.prototype, e),
+          t && y(n, t),
           Object.defineProperty(n, "prototype", { writable: !1 }),
           n
         );
       }
-      function v(n, e) {
+      function k(n, e) {
         if (!(n instanceof e))
           throw new TypeError("Cannot call a class as a function");
       }
-      (m.styleTagTransform = p()),
-        (m.setAttributes = d()),
-        (m.insert = a().bind(null, "head")),
-        (m.domAPI = r()),
-        (m.insertStyleElement = u()),
-        e()(f.Z, m),
-        f.Z && f.Z.locals && f.Z.locals;
-      var x = [],
-        k = null,
-        w = y(function n(e, t, o, r, i) {
-          v(this, n),
+      (g.styleTagTransform = p()),
+        (g.setAttributes = d()),
+        (g.insert = a().bind(null, "head")),
+        (g.domAPI = r()),
+        (g.insertStyleElement = u()),
+        e()(b.Z, g),
+        b.Z && b.Z.locals && b.Z.locals;
+      var w = [],
+        j = null,
+        S = x(function n(e, t, o, r, i) {
+          k(this, n),
             (this.id = e),
             (this.taskName = t),
             (this.description = o),
             (this.complete = r),
             (this.date = i);
         }),
-        j = (function () {
+        T = (function () {
           function n(e) {
-            v(this, n), (this.ProjectName = e), (this.ToDo = []);
+            k(this, n), (this.ProjectName = e), (this.ToDo = []);
           }
           return (
-            y(n, [
+            x(n, [
               {
                 key: "addItemToProject",
                 value: function (n) {
@@ -373,7 +395,7 @@
             n
           );
         })();
-      function S(n) {
+      function E(n) {
         var e,
           t = n.parentNode.querySelector(".todo-item-title").innerText,
           o = (function (n, e) {
@@ -385,7 +407,7 @@
                 Array.isArray(n) ||
                 (t = (function (n, e) {
                   if (n) {
-                    if ("string" == typeof n) return b(n, e);
+                    if ("string" == typeof n) return v(n, e);
                     var t = Object.prototype.toString.call(n).slice(8, -1);
                     return (
                       "Object" === t &&
@@ -395,7 +417,7 @@
                         ? Array.from(n)
                         : "Arguments" === t ||
                           /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)
-                        ? b(n, e)
+                        ? v(n, e)
                         : void 0
                     );
                   }
@@ -444,7 +466,7 @@
                 }
               },
             };
-          })(x);
+          })(w);
         try {
           for (o.s(); !(e = o.n()).done; ) {
             var r = e.value,
@@ -462,11 +484,11 @@
           o.f();
         }
       }
-      function T() {
+      function L() {
         var n = document.querySelector(".need-todo");
         (n.innerHTML = ""),
-          k &&
-            k.ToDo.forEach(function (e) {
+          j &&
+            j.ToDo.forEach(function (e) {
               var t = document.createElement("div"),
                 o = document.createElement("input"),
                 r = document.createElement("div"),
@@ -508,7 +530,7 @@
                     n.target.parentNode.querySelector(
                       ".todo-item-title"
                     ).innerText,
-                  t = x.find(function (n) {
+                  t = w.find(function (n) {
                     return n.ToDo.some(function (n) {
                       return n.taskName === e;
                     });
@@ -518,23 +540,23 @@
                       return n.taskName === e;
                     }),
                     r = t.ToDo.indexOf(o);
-                  t.ToDo.splice(r, 1), T();
+                  t.ToDo.splice(r, 1), L();
                 }
               }
             });
       }
-      function E() {
+      function q() {
         var n = document.querySelector(".project-list");
         (n.innerHTML = ""),
-          x.forEach(function (e) {
+          w.forEach(function (e) {
             var t = document.createElement("p");
             t.classList.add("project-item"),
               (t.innerText = e.ProjectName),
               t.addEventListener("click", function () {
                 !(function (n) {
-                  k = n;
+                  j = n;
                 })(e),
-                  T();
+                  L();
               }),
               n.appendChild(t);
           });
@@ -544,8 +566,8 @@
           e,
           t,
           o,
-          r = new j("My Todo List");
-        x.push(r),
+          r = new T("My Todo List");
+        w.push(r),
           (n = document.querySelector("#add-project")),
           (e = document.querySelector(".project-modal")),
           (document.querySelector(".project-title").innerText = ""),
@@ -569,14 +591,14 @@
               o.classList.add("project-item"),
                 (o.innerText = e.value),
                 (function (n) {
-                  x.push(n);
-                })(new j(e.value)),
+                  w.push(n);
+                })(new T(e.value)),
                 (e.value = ""),
                 t.close(),
-                E();
+                q();
             });
           })(),
-          E(),
+          q(),
           (function () {
             var n = document.querySelector("#add-todo"),
               e = document.querySelector("dialog");
@@ -600,7 +622,7 @@
               i = document.querySelector(".need-todo"),
               a = document.querySelector(".due-date");
             e.addEventListener("click", function (n) {
-              if ((n.preventDefault(), k)) {
+              if ((n.preventDefault(), j)) {
                 var e = document.createElement("div"),
                   c = document.createElement("input"),
                   d = document.createElement("div"),
@@ -632,19 +654,19 @@
                   s.setAttribute("id", "delete-todo"),
                   c.setAttribute("type", "checkbox"),
                   c.setAttribute("name", "todo-item-check");
-                var m = new w(
+                var m = new S(
                   Date.now() + Math.random().toString(36).substring(2, 9),
                   o.value,
                   r.value,
                   !1,
                   a.value
                 );
-                k.addItemToProject(m),
-                  S(c),
+                j.addItemToProject(m),
+                  E(c),
                   (o.value = ""),
                   (r.value = ""),
                   t.close(),
-                  T();
+                  L();
               } else alert("Please select a project to add todos.");
             });
           })(),
@@ -652,14 +674,14 @@
             .querySelector(".need-todo")
             .addEventListener("change", function (n) {
               n.target.classList.contains("todo-checkbox") &&
-                (S(n.target), T());
+                (E(n.target), L());
             }),
           (t = document.querySelector(".dark-mode")),
           (o = document.querySelector("body")),
           t.addEventListener("click", function () {
             o.classList.toggle("dark-mode-theme");
           }),
-          console.log(x);
+          console.log(w);
       });
     })();
 })();
