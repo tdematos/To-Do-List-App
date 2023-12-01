@@ -358,3 +358,21 @@ dialog[open] {
 .add-project-button:hover {
   background-color: rgb(0, 181, 0);
 }
+
+.edit-project-button {
+  font-size: 1rem;
+  font-family: var(--app-fontfont-family);
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+.edit-project-button:hover {
+  background-color: rgb(0, 181, 0);
+}

@@ -72,6 +72,13 @@ function addProjectModal() {
   });
 }
 
+//code for editing project name
+function editProjectName {
+  const editProjectButton = document.querySelector("#edit-project-name")
+
+ 
+}
+
 //a function that swithes between projects
 function switchProject() {
   const projectItems = document.querySelectorAll(".project-item");
@@ -356,6 +363,7 @@ function renderProjects() {
     editProjectButton.classList.add("material-symbols-outlined");
     editProjectButton.innerText = "edit";
     projectItem.appendChild(editProjectButton);
+    projectItem.setAttribute("id", "edit-project-name");
 
     projectItem.addEventListener("click", () => {
       // Set the selected project when a project is clicked
