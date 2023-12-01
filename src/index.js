@@ -1,5 +1,5 @@
-import "./style.css";
-import "./darkstyle.css";
+// import "./style.css";
+// import "./darkstyle.css";
 // import { compareAsc, format } from "date-fns";
 
 // create an array that stores my todo's and project
@@ -350,6 +350,12 @@ function renderProjects() {
     const projectItem = document.createElement("p");
     projectItem.classList.add("project-item");
     projectItem.innerText = project.ProjectName;
+
+    //create edit project icon
+    const editProjectButton = document.createElement("span");
+    editProjectButton.classList.add("material-symbols-outlined");
+    editProjectButton.innerText = "edit";
+    projectItem.appendChild(editProjectButton);
 
     projectItem.addEventListener("click", () => {
       // Set the selected project when a project is clicked
