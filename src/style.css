@@ -134,10 +134,12 @@ h2 {
 }
 
 .project-item {
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(252, 252, 156);
-  width: 60%;
+  width: 65%;
   height: 1.5rem;
-  margin: 2px;
+  margin: 5px;
   cursor: pointer;
 }
 
