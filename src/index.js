@@ -73,11 +73,9 @@ function addProjectModal() {
 }
 
 //code for editing project name
-function editProjectName {
-  const editProjectButton = document.querySelector("#edit-project-name")
-
- 
-}
+// function editProjectName {
+//   const editProjectButton = document.querySelector("#edit-project-name")
+// }
 
 //a function that swithes between projects
 function switchProject() {
