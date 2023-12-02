@@ -2,6 +2,8 @@
 // import "./darkstyle.css";
 // import { compareAsc, format } from "date-fns";
 
+// const { ConcatenationScope } = require("webpack");
+
 // create an array that stores my todo's and project
 const projectArray = [];
 let selectedProject = null;
@@ -69,12 +71,36 @@ function addProjectModal() {
 
     // Render the projects
     renderProjects();
+    editProjectName();
   });
 }
 
 //code for editing project name
 function editProjectName() {
-  const editProjectButton = document.querySelector("#edit-project-name");
+  const editProjectNodeList = document.querySelectorAll(".edit-project-name");
+  const editProjectNameModal = document.querySelector(
+    ".edit-project-name-modal"
+  );
+
+  Array.from(editProjectNodeList).forEach((editProjectButton) => {
+    editProjectButton.addEventListener("click", () => {
+      editProjectNameModal.showModal();
+    });
+  });
+}
+
+//close edit project name modal
+function closeEditProjectName() {
+  const editProjectNameModal = document.querySelector(
+    ".edit-project-name-modal"
+  );
+  const closeEditProjectButton = document.querySelector(
+    ".cancel-edit-project-button"
+  );
+
+  closeEditProjectButton.addEventListener("click", () => {
+    editProjectNameModal.close();
+  });
 }
 
 //a function that swithes between projects
@@ -341,6 +367,8 @@ function initialize() {
   displayToDo(defaultProject);
   completeToDo();
   toggleDarkMode();
+  editProjectName();
+  closeEditProjectName();
   console.log(projectArray);
 }
 
@@ -358,10 +386,12 @@ function renderProjects() {
 
     //create edit project icon
     const editProjectButton = document.createElement("span");
-    editProjectButton.classList.add("material-symbols-outlined");
+    editProjectButton.classList.add(
+      "material-symbols-outlined",
+      "edit-project-name"
+    );
     editProjectButton.innerText = "edit";
     projectItem.appendChild(editProjectButton);
-    editProjectButton.setAttribute("id", "edit-project-name");
 
     projectItem.addEventListener("click", () => {
       // Set the selected project when a project is clicked
