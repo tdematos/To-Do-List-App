@@ -81,10 +81,17 @@ function editProjectName() {
   const editProjectNameModal = document.querySelector(
     ".edit-project-name-modal"
   );
+  const currentProjectName = document.querySelector(".current-project-name");
 
   Array.from(editProjectNodeList).forEach((editProjectButton) => {
     editProjectButton.addEventListener("click", () => {
       editProjectNameModal.showModal();
+
+      const projectText = editProjectButton.parentNode.textContent.trim();
+      const projectName = projectText.slice(0, -4);
+      currentProjectName.innerText = "Current Name:" + " " + projectName;
+
+      console.log(editProjectButton.parentNode);
     });
   });
 }

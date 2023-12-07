@@ -370,9 +370,10 @@ dialog[open] {
   border: none;
   border-radius: 1rem;
   background-color: rgb(255, 255, 255);
-  width: 28rem;
+  width: rem;
   height: 8rem;
   box-shadow: 0px 0px 25px 0.5px #d0d0d0;
+  margin: 5px;
 }
 
 .task-title-edit {
@@ -381,7 +382,7 @@ dialog[open] {
 
 .current-project-name {
   margin: 5px;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .edit-modal-buttons {
   margin-top: 1rem;
