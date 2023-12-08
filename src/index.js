@@ -82,16 +82,37 @@ function editProjectName() {
     ".edit-project-name-modal"
   );
   const currentProjectName = document.querySelector(".current-project-name");
+  const editInput = document.querySelector(".task-title-edit");
 
   Array.from(editProjectNodeList).forEach((editProjectButton) => {
-    editProjectButton.addEventListener("click", () => {
+    editProjectButton.addEventListener("click", (e) => {
+      console.log(e);
       editProjectNameModal.showModal();
+      editInput.value = "";
 
-      const projectText = editProjectButton.parentNode.textContent.trim();
+      const editParentNode = editProjectButton.parentNode;
+      const projectText = editParentNode.textContent.trim();
       const projectName = projectText.slice(0, -4);
       currentProjectName.innerText = "Current Name:" + " " + projectName;
 
-      console.log(editProjectButton.parentNode);
+      const changeProjectNameBtn = document.querySelector(
+        ".edit-project-button"
+      );
+
+      console.log(editParentNode);
+      changeProjectNameBtn.addEventListener("click", () => {
+        editParentNode.innerText = editInput.value;
+        const editIcon = document.createElement("span");
+        editParentNode.appendChild(editIcon);
+        editIcon.classList.add(
+          "material-symbols-outlined",
+          "edit-project-name"
+        );
+        editIcon.innerText = "edit";
+
+        editProjectNameModal.close();
+        console.log(editProjectButton.parentNode);
+      });
     });
   });
 }
@@ -374,8 +395,8 @@ function initialize() {
   displayToDo(defaultProject);
   completeToDo();
   toggleDarkMode();
-  editProjectName();
   closeEditProjectName();
+  editProjectName();
   console.log(projectArray);
 }
 
