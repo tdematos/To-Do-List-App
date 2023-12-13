@@ -7,6 +7,7 @@
 // create an array that stores my todo's and project
 const projectArray = [];
 let selectedProject = null;
+let changeProjectNameBtn = null;
 
 // Function to set the selected project
 function setSelectedProject(project) {
@@ -24,12 +25,13 @@ function toggleDarkMode() {
 }
 
 class ToDo {
-  constructor(id, taskName, description, complete, date) {
+  constructor(id, taskName, description, complete, date, priority) {
     this.id = id;
     this.taskName = taskName;
     this.description = description;
     this.complete = complete;
     this.date = date;
+    this.priority = priority;
   }
 }
 
@@ -71,64 +73,77 @@ function addProjectModal() {
 
     // Render the projects
     renderProjects();
-    editProjectName();
+    openEditProjectNameModal();
+  });
+}
+
+//Code for opening project edit modal
+function openEditProjectNameModal() {
+  const editProjectNodeList = document.querySelectorAll(".edit-project-name");
+  const editProjectNameModal = document.querySelector(
+    ".edit-project-name-modal"
+  );
+
+  Array.from(editProjectNodeList).forEach((editProjectButton) => {
+    editProjectButton.addEventListener("click", () => {
+      editProjectNameModal.showModal();
+      editProjectName(editProjectButton);
+    });
+  });
+}
+
+//code to close edit project name modal
+function closeEditProjectNameModal() {
+  const editProjectNameModal = document.querySelector(
+    ".edit-project-name-modal"
+  );
+  const closeEditButton = document.querySelector(".cancel-edit-project-button");
+
+  closeEditButton.addEventListener("click", () => {
+    editProjectNameModal.close();
+    editProjectName(editProjectButton);
   });
 }
 
 //code for editing project name
-function editProjectName() {
-  const editProjectNodeList = document.querySelectorAll(".edit-project-name");
+function editProjectName(editProjectButton) {
+  console.log("Editing project");
   const editProjectNameModal = document.querySelector(
     ".edit-project-name-modal"
   );
   const currentProjectName = document.querySelector(".current-project-name");
   const editInput = document.querySelector(".task-title-edit");
 
-  Array.from(editProjectNodeList).forEach((editProjectButton) => {
-    editProjectButton.addEventListener("click", (e) => {
-      console.log(e);
-      editProjectNameModal.showModal();
-      editInput.value = "";
+  const editParentNode = editProjectButton.parentNode;
+  const projectText = editParentNode.textContent.trim();
+  const projectName = projectText.slice(0, -4);
+  currentProjectName.innerText = "Current Name:" + " " + projectName;
 
-      const editParentNode = editProjectButton.parentNode;
-      const projectText = editParentNode.textContent.trim();
-      const projectName = projectText.slice(0, -4);
-      currentProjectName.innerText = "Current Name:" + " " + projectName;
+  // Remove the previous event listener if it exists
+  if (changeProjectNameBtn) {
+    changeProjectNameBtn.removeEventListener("click", onProjectNameChange);
+  }
 
-      const changeProjectNameBtn = document.querySelector(
-        ".edit-project-button"
-      );
+  changeProjectNameBtn = document.querySelector(".edit-project-button");
+  changeProjectNameBtn.addEventListener("click", onProjectNameChange);
 
-      console.log(editParentNode);
-      changeProjectNameBtn.addEventListener("click", () => {
-        editParentNode.innerText = editInput.value;
-        const editIcon = document.createElement("span");
-        editParentNode.appendChild(editIcon);
-        editIcon.classList.add(
-          "material-symbols-outlined",
-          "edit-project-name"
-        );
-        editIcon.innerText = "edit";
+  function onProjectNameChange() {
+    const newProjectName = editInput.value;
+    const editParentNodeText = editParentNode.textContent.trim();
+    const originalProjectName = editParentNodeText.slice(0, -4);
 
-        editProjectNameModal.close();
-        console.log(editProjectButton.parentNode);
-      });
-    });
-  });
-}
+    const foundProjectIndex = projectArray.findIndex(
+      (project) => project.ProjectName === originalProjectName
+    );
 
-//close edit project name modal
-function closeEditProjectName() {
-  const editProjectNameModal = document.querySelector(
-    ".edit-project-name-modal"
-  );
-  const closeEditProjectButton = document.querySelector(
-    ".cancel-edit-project-button"
-  );
-
-  closeEditProjectButton.addEventListener("click", () => {
-    editProjectNameModal.close();
-  });
+    if (foundProjectIndex !== -1) {
+      projectArray[foundProjectIndex].ProjectName = newProjectName;
+      editProjectNameModal.close();
+      renderProjects(); // Update the list of projects in the UI
+    } else {
+      console.error("Project not found in the array!");
+    }
+  }
 }
 
 //a function that swithes between projects
@@ -395,8 +410,8 @@ function initialize() {
   displayToDo(defaultProject);
   completeToDo();
   toggleDarkMode();
-  closeEditProjectName();
-  editProjectName();
+  closeEditProjectNameModal();
+  openEditProjectNameModal();
   console.log(projectArray);
 }
 

@@ -239,6 +239,20 @@ dialog[open] {
   width: 28rem;
   height: 12rem;
   box-shadow: 0px 0px 25px 0.5px #d0d0d0;
+  margin: 0px;
+}
+
+.priority {
+  width: 100%;
+}
+
+.priority-label {
+  color: red;
+}
+
+select {
+  position: relative;
+  left: 0.6rem;
 }
 
 .input-box {
@@ -260,7 +274,7 @@ dialog[open] {
 }
 
 .duedate-container {
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: 50%;
 }
 
