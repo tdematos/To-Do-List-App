@@ -256,17 +256,6 @@ function displayToDo(project) {
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
-    //change todo priority color
-    if (prioritySelector.value === "Low") {
-      taskDueDate.style.backgroundColor = "yellow";
-    } else if (prioritySelector.value === "Medium") {
-      taskDueDate.style.backgroundColor = "orange";
-    } else if (prioritySelector.value === "High") {
-      taskDueDate.style.backgroundColor = "red";
-    } else {
-      console.log("No priority selected!"); // Check if no priority matches
-    }
-
     const newToDo = new ToDo(
       generateUniqueId(),
       taskTitle.value,
@@ -338,18 +327,6 @@ function renderToDoList() {
       const deleteToDoItem = document.createElement("span");
       const container = document.createElement("div");
       const taskDueDate = document.createElement("p");
-      const prioritySelector = document.querySelector("select");
-
-      //change todo priority color
-      if (prioritySelector.value === "Low") {
-        taskDueDate.style.backgroundColor = "yellow";
-      } else if (prioritySelector.value === "Medium") {
-        taskDueDate.style.backgroundColor = "orange";
-      } else if (prioritySelector.value === "High") {
-        taskDueDate.style.backgroundColor = "red";
-      } else {
-        console.log("No priority selected!"); // Check if no priority matches
-      }
 
       toDo.appendChild(container);
       container.appendChild(checkBox);
@@ -377,6 +354,21 @@ function renderToDoList() {
       deleteToDoItem.setAttribute("id", "delete-todo");
 
       checkBox.checked = todo.complete;
+
+      // Set the background color based on the priority value of each todo item
+      switch (todo.priority) {
+        case "Low":
+          taskDueDate.style.backgroundColor = "yellow";
+          break;
+        case "Medium":
+          taskDueDate.style.backgroundColor = "orange";
+          break;
+        case "High":
+          taskDueDate.style.backgroundColor = "red";
+          break;
+        default:
+          console.log("No priority selected!"); // Handle cases where priority is not set
+      }
 
       toDoContainer.appendChild(toDo);
     });
