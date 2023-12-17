@@ -26,7 +26,7 @@
         ]),
           a.push([
             n.id,
-            ':root {\n  --app-fontfont-family: "Architects Daughter", cursive;\n  --panel-background-color: rgb(244, 244, 244);\n  --todo-background-color: rgb(255, 255, 255);\n  --accent-background-color: rgb(229, 229, 229);\n}\n\nbody {\n  font-family: var(--app-fontfont-family);\n}\n\n.top-nav {\n  width: 100vw;\n  background-color: var(--panel-background-color);\n  display: flex;\n  flex-direction: row;\n  border-bottom: 1px solid white;\n}\n\nh1 {\n  margin-left: 10px;\n}\n\n.menu-nav {\n  width: 50%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n}\n\n.search-bar {\n  font-family: var(--app-fontfont-family);\n  width: 10rem;\n  margin-left: 10px;\n  background-color: var(--accent-background-color);\n  border: none;\n  padding: 10px;\n  border-radius: 0.5rem;\n}\n\n.search-bar:hover {\n  background-color: white;\n}\n\n#search-icon {\n  position: relative;\n  right: 25px;\n}\n\n.nav-options {\n  width: 50%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n}\n\n.dark-mode {\n  font-family: var(--app-fontfont-family);\n  color: white;\n  background-color: rgb(33, 33, 84);\n  padding: 10px;\n  border-radius: 0.5rem;\n  border: none;\n  margin: 10px;\n}\n\n.dark-mode:hover {\n  color: rgb(33, 33, 84);\n  background-color: white;\n}\n\n#add-todo {\n  cursor: pointer;\n  margin-left: 10px;\n  margin-right: 30px;\n  padding: 10px;\n}\n\n.material-symbols-outlined:hover {\n  background-color: var(--accent-background-color);\n  border-radius: 0.5rem;\n}\n\n.ham-menu {\n  margin-right: 30px;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n}\n\n.side-bar {\n  height: 100vh;\n  width: 25vw;\n  background-color: var(--panel-background-color);\n}\n\nh2 {\n  margin: 10px;\n  height: 1.5rem;\n}\n\n.project-title-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n\n#add-project {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 2rem;\n  height: 2rem;\n  margin: 10px;\n  cursor: pointer;\n}\n\n.projects {\n  height: 100%;\n}\n\n.project-list {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  height: 100%;\n}\n\n.project-item {\n  background-color: rgb(252, 252, 156);\n  width: 60%;\n  height: 1.5rem;\n  margin: 2px;\n  cursor: pointer;\n}\n\n.project-item:hover {\n  background-color: yellow;\n}\n\n.todo-panel {\n  width: 100%;\n  background-color: var(--todo-background-color);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.need-todo {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.to-do {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  width: 60%;\n}\n\n.input-container {\n  display: flex;\n  flex-direction: row;\n}\n\n.todo-checkbox {\n  position: relative;\n  top: 13px;\n  margin-right: 10px;\n  /* appearance: none; */\n  width: 20px;\n  height: 20px;\n  border-radius: 25%;\n  border: 1px solid black;\n  outline: none;\n}\n\n.todo-box {\n  display: flex;\n  flex-direction: column;\n}\n\n.todo-item-title {\n  font-size: 1.5rem;\n  display: flex;\n  flex-direction: row;\n  margin-top: 10px;\n  margin-bottom: 0px;\n}\n\n.project-title {\n  margin-left: 10px;\n  font-size: 1.25rem;\n}\n\n.todo-description {\n  font-family: var(--app-fontfont-family);\n  font-size: 0.85rem;\n  margin: 0;\n}\n\n#delete-todo {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  /* position: relative; */\n  left: 20rem;\n  top: 0.5rem;\n  width: 10%;\n  cursor: pointer;\n}\n#delete-tod:hover {\n  background-color: red;\n}\n\n/*place for styling the modal*/\ndialog[open] {\n  position: absolute;\n  top: 50%;\n  left: 70%;\n  transform: translate(-90%, -50%);\n  z-index: 9999;\n  display: flex;\n  flex-direction: column;\n  border: none;\n  border-radius: 1rem;\n  background-color: rgb(255, 255, 255);\n  width: 28rem;\n  height: 12rem;\n  box-shadow: 0px 0px 25px 0.5px #d0d0d0;\n}\n\n.input-box {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 80%;\n}\n\n.task-title {\n  font-size: 1.5rem;\n  font-family: var(--app-fontfont-family);\n  border: none;\n}\n\n.task-description {\n  font-family: var(--app-fontfont-family);\n  border: none;\n}\n\n.duedate-container {\n  margin-top: 3rem;\n  width: 50%;\n}\n\n.due-date-label {\n  color: red;\n}\n\n.task-due-date {\n  margin: 2px;\n  background-color: yellow;\n}\n\n.modal-buttons {\n  border-top: 1px solid lightgray;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n  height: 30%;\n}\n\n.add-task-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: green;\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 10px;\n}\n\n.add-task-button:hover {\n  background-color: rgb(0, 181, 0);\n}\n\n.cancel-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: rgb(128, 0, 0);\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 5px;\n}\n\n.cancel-button:hover {\n  background-color: rgb(188, 0, 0);\n}\n\n/* Project Modal */\n.project-title {\n  font-family: var(--app-fontfont-family);\n}\n\n.cancel-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: rgb(128, 0, 0);\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 5px;\n}\n\n.cancel-project-button:hover {\n  background-color: rgb(188, 0, 0);\n}\n\n.add-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: green;\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 10px;\n}\n\n.add-project-button:hover {\n  background-color: rgb(0, 181, 0);\n}\n',
+            ':root {\n  --app-fontfont-family: "Architects Daughter", cursive;\n  --panel-background-color: rgb(244, 244, 244);\n  --todo-background-color: rgb(255, 255, 255);\n  --accent-background-color: rgb(229, 229, 229);\n}\n\nbody {\n  font-family: var(--app-fontfont-family);\n}\n\n.top-nav {\n  width: 100vw;\n  background-color: var(--panel-background-color);\n  display: flex;\n  flex-direction: row;\n  border-bottom: 1px solid white;\n}\n\nh1 {\n  margin-left: 10px;\n}\n\n.menu-nav {\n  width: 50%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n}\n\n.search-bar {\n  font-family: var(--app-fontfont-family);\n  width: 10rem;\n  margin-left: 10px;\n  background-color: var(--accent-background-color);\n  border: none;\n  padding: 10px;\n  border-radius: 0.5rem;\n}\n\n.search-bar:hover {\n  background-color: white;\n}\n\n#search-icon {\n  position: relative;\n  right: 25px;\n}\n\n.nav-options {\n  width: 50%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n}\n\n.dark-mode {\n  font-family: var(--app-fontfont-family);\n  color: white;\n  background-color: rgb(33, 33, 84);\n  padding: 10px;\n  border-radius: 0.5rem;\n  border: none;\n  margin: 5px;\n}\n\n.dark-mode:hover {\n  color: rgb(33, 33, 84);\n  background-color: white;\n}\n\n#add-todo {\n  cursor: pointer;\n  margin-left: 10px;\n  margin-right: 30px;\n  padding: 10px;\n}\n\n.material-symbols-outlined:hover {\n  background-color: var(--accent-background-color);\n  border-radius: 0.5rem;\n}\n\n.ham-menu {\n  margin-right: 30px;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n}\n\n.side-bar {\n  height: 100vh;\n  width: 25vw;\n  background-color: var(--panel-background-color);\n}\n\nh2 {\n  margin: 10px;\n  height: 1.5rem;\n}\n\n.project-title-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n}\n\n#add-project {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 2rem;\n  height: 2rem;\n  margin: 10px;\n  cursor: pointer;\n}\n\n.projects {\n  height: 100%;\n}\n\n.project-list {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  height: 100%;\n}\n\n.project-item {\n  display: flex;\n  justify-content: space-between;\n  background-color: rgb(252, 252, 156);\n  width: 65%;\n  height: 1.5rem;\n  margin: 5px;\n  cursor: pointer;\n}\n\n.project-item:hover {\n  background-color: yellow;\n}\n\n.todo-panel {\n  width: 100%;\n  background-color: var(--todo-background-color);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.need-todo {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.to-do {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  width: 60%;\n}\n\n.input-container {\n  display: flex;\n  flex-direction: row;\n}\n\n.todo-checkbox {\n  position: relative;\n  top: 13px;\n  margin-right: 10px;\n  /* appearance: none; */\n  width: 20px;\n  height: 20px;\n  border-radius: 25%;\n  border: 1px solid black;\n  outline: none;\n}\n\n.todo-box {\n  display: flex;\n  flex-direction: column;\n}\n\n.todo-item-title {\n  font-size: 1.5rem;\n  display: flex;\n  flex-direction: row;\n  margin-top: 10px;\n  margin-bottom: 0px;\n}\n\n.project-title {\n  margin-left: 10px;\n  font-size: 1.25rem;\n}\n\n.todo-description {\n  font-family: var(--app-fontfont-family);\n  font-size: 0.85rem;\n  margin: 0;\n}\n\n#delete-todo {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  /* position: relative; */\n  left: 20rem;\n  top: 0.5rem;\n  width: 10%;\n  cursor: pointer;\n}\n#delete-tod:hover {\n  background-color: red;\n}\n\n/*place for styling the modal*/\ndialog[open] {\n  position: absolute;\n  top: 50%;\n  left: 70%;\n  transform: translate(-90%, -50%);\n  z-index: 9999;\n  display: flex;\n  flex-direction: column;\n  border: none;\n  border-radius: 1rem;\n  background-color: rgb(255, 255, 255);\n  width: 28rem;\n  height: 12rem;\n  box-shadow: 0px 0px 25px 0.5px #d0d0d0;\n  margin: 0px;\n}\n\n.priority {\n  width: 100%;\n  position: relative;\n}\n\n.priority-label {\n  color: red;\n}\n\nselect {\n  position: relative;\n  left: 0.6rem;\n}\n\n.input-box {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 80%;\n}\n\n.task-title {\n  font-size: 1.5rem;\n  font-family: var(--app-fontfont-family);\n  border: none;\n}\n\n.task-description {\n  font-family: var(--app-fontfont-family);\n  border: none;\n}\n\n.duedate-container {\n  margin-top: 2rem;\n  width: 50%;\n}\n\n.due-date-label {\n  color: red;\n}\n\n.task-due-date {\n  margin: 2px;\n}\n\n.modal-buttons {\n  border-top: 1px solid lightgray;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n  height: 30%;\n}\n\n.add-task-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: green;\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 10px;\n}\n\n.add-task-button:hover {\n  background-color: rgb(0, 181, 0);\n}\n\n.cancel-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: rgb(128, 0, 0);\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 5px;\n}\n\n.cancel-button:hover {\n  background-color: rgb(188, 0, 0);\n}\n\n/* Project Modal */\n.project-title {\n  font-family: var(--app-fontfont-family);\n}\n\n.cancel-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: rgb(128, 0, 0);\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 5px;\n}\n\n.cancel-project-button:hover {\n  background-color: rgb(188, 0, 0);\n}\n\n.add-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: green;\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 10px;\n}\n\n.add-project-button:hover {\n  background-color: rgb(0, 181, 0);\n}\n/* Edit Project Modal*/\n.edit-project-name-modal[open] {\n  position: absolute;\n  top: 50%;\n  left: 70%;\n  transform: translate(-90%, -50%);\n  z-index: 9999;\n  display: flex;\n  flex-direction: column;\n  border: none;\n  border-radius: 1rem;\n  background-color: rgb(255, 255, 255);\n  width: rem;\n  height: 8rem;\n  box-shadow: 0px 0px 25px 0.5px #d0d0d0;\n  margin: 5px;\n}\n\n.task-title-edit {\n  border: none;\n}\n\n.current-project-name {\n  margin: 5px;\n  font-size: 1.2rem;\n}\n.edit-modal-buttons {\n  margin-top: 1rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: end;\n  align-items: center;\n}\n\n.edit-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: green;\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 10px;\n}\n\n.edit-project-button:hover {\n  background-color: rgb(0, 181, 0);\n}\n\n.cancel-edit-project-button {\n  font-size: 1rem;\n  font-family: var(--app-fontfont-family);\n  background-color: rgb(128, 0, 0);\n  color: white;\n  border: none;\n  border-radius: 0.5rem;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 10px;\n  padding-right: 10px;\n  margin: 5px;\n}\n\n.cancel-edit-project-button:hover {\n  background-color: rgb(188, 0, 0);\n}\n',
             "",
           ]);
         const c = a;
@@ -116,18 +116,18 @@
               s = "".concat(l, " ").concat(u);
             i[l] = u + 1;
             var p = t(s),
-              f = {
+              m = {
                 css: d[1],
                 media: d[2],
                 sourceMap: d[3],
                 supports: d[4],
                 layer: d[5],
               };
-            if (-1 !== p) e[p].references++, e[p].updater(f);
+            if (-1 !== p) e[p].references++, e[p].updater(m);
             else {
-              var m = r(f, o);
+              var f = r(m, o);
               (o.byIndex = c),
-                e.splice(c, 0, { identifier: s, updater: m, references: 1 });
+                e.splice(c, 0, { identifier: s, updater: f, references: 1 });
             }
             a.push(s);
           }
@@ -289,17 +289,17 @@
         u = t.n(l),
         s = t(589),
         p = t.n(s),
-        f = t(426),
-        m = {};
-      (m.styleTagTransform = p()),
-        (m.setAttributes = d()),
-        (m.insert = a().bind(null, "head")),
-        (m.domAPI = r()),
-        (m.insertStyleElement = u()),
-        e()(f.Z, m),
-        f.Z && f.Z.locals && f.Z.locals;
-      var b = t(797),
-        g = {};
+        m = t(426),
+        f = {};
+      (f.styleTagTransform = p()),
+        (f.setAttributes = d()),
+        (f.insert = a().bind(null, "head")),
+        (f.domAPI = r()),
+        (f.insertStyleElement = u()),
+        e()(m.Z, f),
+        m.Z && m.Z.locals && m.Z.locals;
+      var g = t(797),
+        b = {};
       function h(n) {
         return (
           (h =
@@ -318,12 +318,12 @@
           h(n)
         );
       }
-      function v(n, e) {
+      function y(n, e) {
         (null == e || e > n.length) && (e = n.length);
         for (var t = 0, o = new Array(e); t < e; t++) o[t] = n[t];
         return o;
       }
-      function y(n, e) {
+      function v(n, e) {
         for (var t = 0; t < e.length; t++) {
           var o = e[t];
           (o.enumerable = o.enumerable || !1),
@@ -352,8 +352,8 @@
       }
       function x(n, e, t) {
         return (
-          e && y(n.prototype, e),
-          t && y(n, t),
+          e && v(n.prototype, e),
+          t && v(n, t),
           Object.defineProperty(n, "prototype", { writable: !1 }),
           n
         );
@@ -362,22 +362,24 @@
         if (!(n instanceof e))
           throw new TypeError("Cannot call a class as a function");
       }
-      (g.styleTagTransform = p()),
-        (g.setAttributes = d()),
-        (g.insert = a().bind(null, "head")),
-        (g.domAPI = r()),
-        (g.insertStyleElement = u()),
-        e()(b.Z, g),
-        b.Z && b.Z.locals && b.Z.locals;
+      (b.styleTagTransform = p()),
+        (b.setAttributes = d()),
+        (b.insert = a().bind(null, "head")),
+        (b.domAPI = r()),
+        (b.insertStyleElement = u()),
+        e()(g.Z, b),
+        g.Z && g.Z.locals && g.Z.locals;
       var w = [],
         j = null,
-        S = x(function n(e, t, o, r, i) {
+        S = null,
+        E = x(function n(e, t, o, r, i, a) {
           k(this, n),
             (this.id = e),
             (this.taskName = t),
             (this.description = o),
             (this.complete = r),
-            (this.date = i);
+            (this.date = i),
+            (this.priority = a);
         }),
         T = (function () {
           function n(e) {
@@ -395,7 +397,40 @@
             n
           );
         })();
-      function E(n) {
+      function L() {
+        var n = document.querySelectorAll(".edit-project-name"),
+          e = document.querySelector(".edit-project-name-modal");
+        Array.from(n).forEach(function (n) {
+          n.addEventListener("click", function () {
+            e.showModal(), q(n);
+          });
+        });
+      }
+      function q(n) {
+        console.log("Editing project");
+        var e = document.querySelector(".edit-project-name-modal"),
+          t = document.querySelector(".current-project-name"),
+          o = document.querySelector(".task-title-edit"),
+          r = n.parentNode,
+          i = r.textContent.trim().slice(0, -4);
+        function a() {
+          var n = o.value,
+            t = r.textContent.trim().slice(0, -4),
+            i = w.findIndex(function (n) {
+              return n.ProjectName === t;
+            });
+          -1 !== i
+            ? ((w[i].ProjectName = n), e.close(), M())
+            : console.error("Project not found in the array!");
+        }
+        (t.innerText = "Current Name: " + i),
+          S && S.removeEventListener("click", a),
+          (S = document.querySelector(".edit-project-button")).addEventListener(
+            "click",
+            a
+          );
+      }
+      function C(n) {
         var e,
           t = n.parentNode.querySelector(".todo-item-title").innerText,
           o = (function (n, e) {
@@ -407,7 +442,7 @@
                 Array.isArray(n) ||
                 (t = (function (n, e) {
                   if (n) {
-                    if ("string" == typeof n) return v(n, e);
+                    if ("string" == typeof n) return y(n, e);
                     var t = Object.prototype.toString.call(n).slice(8, -1);
                     return (
                       "Object" === t &&
@@ -417,7 +452,7 @@
                         ? Array.from(n)
                         : "Arguments" === t ||
                           /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)
-                        ? v(n, e)
+                        ? y(n, e)
                         : void 0
                     );
                   }
@@ -484,7 +519,7 @@
           o.f();
         }
       }
-      function L() {
+      function A() {
         var n = document.querySelector(".need-todo");
         (n.innerHTML = ""),
           j &&
@@ -497,7 +532,8 @@
                 c = document.createElement("span"),
                 d = document.createElement("div"),
                 l = document.createElement("p");
-              t.appendChild(d),
+              switch (
+                (t.appendChild(d),
                 d.appendChild(o),
                 d.appendChild(r),
                 r.appendChild(i),
@@ -520,7 +556,21 @@
                 c.classList.add("material-symbols-outlined"),
                 c.setAttribute("id", "delete-todo"),
                 (o.checked = e.complete),
-                n.appendChild(t);
+                e.priority)
+              ) {
+                case "Low":
+                  l.style.backgroundColor = "yellow";
+                  break;
+                case "Medium":
+                  l.style.backgroundColor = "orange";
+                  break;
+                case "High":
+                  l.style.backgroundColor = "red";
+                  break;
+                default:
+                  console.log("No priority selected!");
+              }
+              n.appendChild(t);
             }),
           document
             .querySelector(".need-todo")
@@ -540,23 +590,34 @@
                       return n.taskName === e;
                     }),
                     r = t.ToDo.indexOf(o);
-                  t.ToDo.splice(r, 1), L();
+                  t.ToDo.splice(r, 1), A();
                 }
               }
             });
       }
-      function q() {
+      function M() {
         var n = document.querySelector(".project-list");
         (n.innerHTML = ""),
           w.forEach(function (e) {
             var t = document.createElement("p");
-            t.classList.add("project-item"),
-              (t.innerText = e.ProjectName),
+            t.classList.add("project-item"), (t.innerText = e.ProjectName);
+            var o = document.createElement("span");
+            o.classList.add("material-symbols-outlined", "edit-project-name"),
+              (o.innerText = "edit"),
+              t.appendChild(o),
               t.addEventListener("click", function () {
+                var n;
                 !(function (n) {
                   j = n;
                 })(e),
-                  L();
+                  A(),
+                  (n = t),
+                  document
+                    .querySelectorAll(".project-item")
+                    .forEach(function (n) {
+                      n.style.backgroundColor = "yellow";
+                    }),
+                  (n.style.backgroundColor = "darkorange");
               }),
               n.appendChild(t);
           });
@@ -566,8 +627,9 @@
           e,
           t,
           o,
-          r = new T("My Todo List");
-        w.push(r),
+          r,
+          i = new T("My Todo List");
+        w.push(i),
           (n = document.querySelector("#add-project")),
           (e = document.querySelector(".project-modal")),
           (document.querySelector(".project-title").innerText = ""),
@@ -595,10 +657,11 @@
                 })(new T(e.value)),
                 (e.value = ""),
                 t.close(),
-                q();
+                M(),
+                L();
             });
           })(),
-          q(),
+          M(),
           (function () {
             var n = document.querySelector("#add-todo"),
               e = document.querySelector("dialog");
@@ -630,43 +693,45 @@
                   u = document.createElement("p"),
                   s = document.createElement("span"),
                   p = document.createElement("div"),
-                  f = document.createElement("p");
+                  m = document.createElement("p"),
+                  f = document.querySelector("select");
                 i.appendChild(e),
                   e.appendChild(p),
                   p.appendChild(c),
                   p.appendChild(d),
                   d.appendChild(l),
                   d.appendChild(u),
-                  d.appendChild(f),
+                  d.appendChild(m),
                   e.appendChild(s),
                   (l.innerText = o.value),
                   (u.innerText = r.value),
                   (s.innerText = "delete"),
-                  (f.innerText = a.value),
+                  (m.innerText = a.value),
                   p.classList.add("input-container"),
                   e.classList.add("to-do"),
                   l.classList.add("todo-item-title"),
                   c.classList.add("todo-checkbox"),
                   d.classList.add("todo-box"),
                   u.classList.add("todo-description"),
-                  f.classList.add("task-due-date"),
+                  m.classList.add("task-due-date"),
                   s.classList.add("material-symbol-outlined"),
                   s.setAttribute("id", "delete-todo"),
                   c.setAttribute("type", "checkbox"),
                   c.setAttribute("name", "todo-item-check");
-                var m = new S(
+                var g = new E(
                   Date.now() + Math.random().toString(36).substring(2, 9),
                   o.value,
                   r.value,
                   !1,
-                  a.value
+                  a.value,
+                  f.value
                 );
-                j.addItemToProject(m),
-                  E(c),
+                j.addItemToProject(g),
+                  C(c),
                   (o.value = ""),
                   (r.value = ""),
                   t.close(),
-                  L();
+                  A();
               } else alert("Please select a project to add todos.");
             });
           })(),
@@ -674,13 +739,20 @@
             .querySelector(".need-todo")
             .addEventListener("change", function (n) {
               n.target.classList.contains("todo-checkbox") &&
-                (E(n.target), L());
+                (C(n.target), A());
             }),
           (t = document.querySelector(".dark-mode")),
           (o = document.querySelector("body")),
           t.addEventListener("click", function () {
             o.classList.toggle("dark-mode-theme");
           }),
+          (r = document.querySelector(".edit-project-name-modal")),
+          document
+            .querySelector(".cancel-edit-project-button")
+            .addEventListener("click", function () {
+              r.close(), q(editProjectButton);
+            }),
+          L(),
           console.log(w);
       });
     })();

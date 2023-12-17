@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ListDo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="darkstyle.css" />
 
     <link
       rel="stylesheet"
@@ -17,11 +19,20 @@
     />
   </head>
   <body>
-    <dialog class="modal">
+    <dialog class="modal add-todo-modal">
       <div class="input-box">
         <input class="task-title" type="text" placeholder="Task name" />
         <input class="task-description" type="text" placeholder="Description" />
         <span class="duedate-container">
+          <div class="priority">
+            <label class="priority-label" for="Priority">Priority:</label>
+
+            <select name="set-task-priority" id="task-priority">
+              <option class="low-priority" value="Low">Low</option>
+              <option class="medium-priority" value="Medium">Medium</option>
+              <option class="high-priority" value="High">High</option>
+            </select>
+          </div>
           <label class="due-date-label" for="due-date">Due Date:</label>
           <input class="due-date" type="date" id="due-date" name="due-date" />
         </span>
@@ -43,6 +54,19 @@
       <div class="project-modal-buttons">
         <button class="cancel-project-button">Cancel</button>
         <button class="add-project-button">Add Project</button>
+      </div>
+    </dialog>
+
+    <dialog class="edit-project-name-modal">
+      <p class="current-project-name">Current Project</p>
+      <input
+        class="task-title-edit"
+        type="text"
+        placeholder="Enter new name here..."
+      />
+      <div class="edit-modal-buttons">
+        <button class="cancel-edit-project-button">Cancel</button>
+        <button class="edit-project-button">Change</button>
       </div>
     </dialog>
 
