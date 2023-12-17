@@ -1,6 +1,6 @@
-// import "./style.css";
-// import "./darkstyle.css";
-// import { compareAsc, format } from "date-fns";
+import "./style.css";
+import "./darkstyle.css";
+import { compareAsc, format } from "date-fns";
 
 // const { ConcatenationScope } = require("webpack");
 
@@ -481,3 +481,20 @@ function highlightProject(currentProject) {
 
 // Call initialization function when the page loads
 document.addEventListener("DOMContentLoaded", initialize);
+
+//Project ToDo
+//remove or make the blue input selector look better
+//fix bug with editing todo
+//add functionality to be able to edit todoname
+//add local storage to project
+//add css animation to project
+//add search function to project
+//fix dark mode button to switch to light mode
+//complete dark mode styling on project
+//Work on changing date format with DateFNS
+//Add Edit functionality to everything on project (Priority, Description, etc...)
+//Make app mobile friendly
+//write updated readme Description of project, make seperate readme for project details.
+//Try different fonts to see which one better fits project
+//add form validation for each form field in project
+// (future) make log in screen
