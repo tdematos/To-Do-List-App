@@ -458,10 +458,25 @@ function renderProjects() {
       setSelectedProject(project);
       // Render todos for the selected project
       renderToDoList();
+
+      highlightProject(projectItem);
     });
 
     projectListContainer.appendChild(projectItem);
   });
+}
+
+//a function for highlighting the selected project
+function highlightProject(currentProject) {
+  const projectItems = document.querySelectorAll(".project-item");
+
+  // Remove highlight from all projects
+  projectItems.forEach((projectItem) => {
+    projectItem.style.backgroundColor = "yellow"; // Set the default color
+  });
+
+  // Highlight the currently selected project
+  currentProject.style.backgroundColor = "darkorange";
 }
 
 // Call initialization function when the page loads
