@@ -228,6 +228,7 @@ function displayToDo(project) {
     const deleteToDoItem = document.createElement("span");
     const container = document.createElement("div");
     const taskDueDate = document.createElement("p");
+    const prioritySelector = document.querySelector("select");
 
     toDoContainer.appendChild(toDo);
     toDo.appendChild(container);
@@ -255,12 +256,24 @@ function displayToDo(project) {
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("name", "todo-item-check");
 
+    //change todo priority color
+    if (prioritySelector.value === "Low") {
+      taskDueDate.style.backgroundColor = "yellow";
+    } else if (prioritySelector.value === "Medium") {
+      taskDueDate.style.backgroundColor = "orange";
+    } else if (prioritySelector.value === "High") {
+      taskDueDate.style.backgroundColor = "red";
+    } else {
+      console.log("No priority selected!"); // Check if no priority matches
+    }
+
     const newToDo = new ToDo(
       generateUniqueId(),
       taskTitle.value,
       taskDescription.value,
       false,
-      dueDateSelected.value
+      dueDateSelected.value,
+      prioritySelector.value
     );
 
     selectedProject.addItemToProject(newToDo);
@@ -325,6 +338,18 @@ function renderToDoList() {
       const deleteToDoItem = document.createElement("span");
       const container = document.createElement("div");
       const taskDueDate = document.createElement("p");
+      const prioritySelector = document.querySelector("select");
+
+      //change todo priority color
+      if (prioritySelector.value === "Low") {
+        taskDueDate.style.backgroundColor = "yellow";
+      } else if (prioritySelector.value === "Medium") {
+        taskDueDate.style.backgroundColor = "orange";
+      } else if (prioritySelector.value === "High") {
+        taskDueDate.style.backgroundColor = "red";
+      } else {
+        console.log("No priority selected!"); // Check if no priority matches
+      }
 
       toDo.appendChild(container);
       container.appendChild(checkBox);

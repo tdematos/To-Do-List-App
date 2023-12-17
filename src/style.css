@@ -244,6 +244,7 @@ dialog[open] {
 
 .priority {
   width: 100%;
+  position: relative;
 }
 
 .priority-label {
@@ -284,7 +285,6 @@ select {
 
 .task-due-date {
   margin: 2px;
-  background-color: yellow;
 }
 
 .modal-buttons {
